@@ -8,7 +8,7 @@ from langchain_core.documents import Document
 from src.models.agent import create_agent, get_llm_client
 from src.models.schemas import EvalCase, EvalResult
 from src.models.prompt import create_grading_prompt, create_citation_eval_prompt
-from src.models.reranker import create_reranker
+from src.models.reranker import CrossEncoderReranker
 import logging
 
 logger = logging.getLogger(__name__)
@@ -31,58 +31,48 @@ class LLMGrader:
         self.llm = get_llm_client()
         self.grading_prompt = create_grading_prompt()
         self.citation_prompt = create_citation_eval_prompt()
-        self._reranker = None
+        self._reranker: Optional[CrossEncoderReranker] = None
 
-    def _get_reranker(self):
+    def _get_reranker(self) -> CrossEncoderReranker:
+        """
+        Lazy-init the cross-encoder reranker used as an *evaluation* signal:
+        score(question, generated_answer).
+        """
         if self._reranker is None:
-            self._reranker = create_reranker()
+            self._reranker = CrossEncoderReranker()
         return self._reranker
 
-    def reranker_metrics(self, question: str, citations: List[dict]) -> dict:
-        """Compute deterministic SentenceTransformer reranker metrics over the provided citations."""
+    def answer_grading_metric(self, question: str, answer: str) -> dict:
+        """Grade the relevance of (question, answer) using the cross-encoder reranker."""
+        if not (question or "").strip() or not (answer or "").strip():
+            return {
+                "answer_grade_score": 0.0,
+                "reranker_model": getattr(self._reranker, "model_name", None)
+            }
+
         reranker = self._get_reranker()
-        
-        if not citations:
+
+        answer_doc = Document(page_content=answer, metadata={"source": "generated_answer"})
+        try:
+            ranked = reranker.rerank(question, [answer_doc])
+            if not ranked:
+                return {
+                    "answer_grade_score": 0.0,
+                    "reranker_model": getattr(reranker, "model_name", None)
+                }
+
+            score = float(ranked[0].score)
             return {
-                "reranker_model": None,
-                "reranker_top_score": 0.0,
-                "reranker_mean_score": 0.0,
-                "reranker_n": 0,
+                "answer_grade_score": score,
+                "reranker_model": getattr(reranker, "model_name", None)
             }
-
-        documents: List[Document] = []
-        for idx, c in enumerate(citations):
-            text = (c or {}).get("relevant_text") or ""
-            if text.strip():
-                documents.append(Document(page_content=text, metadata={"citation_index": idx}))
-
-        if not documents:
+        except Exception as e:
+            logger.warning(f"answer_grading_metric failed: {e}", exc_info=True)
             return {
-                "reranker_model": reranker.model_name,
-                "reranker_top_score": 0.0,
-                "reranker_mean_score": 0.0,
-                "reranker_n": 0,
+                "answer_grade_score": 0.0,
+                "reranker_model": getattr(reranker, "model_name", None),
+                "reranker_error": str(e),
             }
-
-        
-        ranked = reranker.rerank(question, documents)
-        if not ranked:
-            return {
-                "reranker_model": reranker.model_name,
-                "reranker_top_score": 0.0,
-                "reranker_mean_score": 0.0,
-                "reranker_n": 0,
-            }
-
-        scores = [r.score for r in ranked]
-        top_score = max(scores) if scores else 0.0
-        mean_score = (sum(scores) / len(scores)) if scores else 0.0
-        return {
-            "reranker_model": reranker.model_name,
-            "reranker_top_score": round(float(top_score),2),
-            "reranker_mean_score": round(float(mean_score),2),
-            "reranker_n": len(scores),
-        }
 
     def grade_response(
         self,
@@ -94,16 +84,15 @@ class LLMGrader:
         if not expected:
             expected = "A relevant and accurate answer based on the available documents."
 
-        rr = self.reranker_metrics(question, citations or [])
-        
+        rr = self.answer_grading_metric(question, generated)
+
         chain = self.grading_prompt | self.llm | JsonOutputParser()
         try:
             result = chain.invoke({
                 "question": question,
                 "expected_answer": expected,
                 "generated_answer": generated,
-                "reranker_top_score": rr["reranker_top_score"],
-                "reranker_mean_score": rr["reranker_mean_score"],
+                "answer_grade_score": rr["answer_grade_score"],
             })
             result.update(rr)
             return result
@@ -115,14 +104,14 @@ class LLMGrader:
                 "overall": 0,
                 "passed": 0,
                 "reason": "UNSUPPORTED",
-                **self.reranker_metrics(question, citations or []),
+                "answer_grade_score": rr.get("answer_grade_score", 0),
                 "error": f"Grading error: {str(e)}",
             }
 
     def grade_citations(self, answer: str, citations: List[dict]) -> dict:
         if not citations:
             return {"citation_relevance": 0, "citation_support": 0, "reason": "MISSING"}
-        
+
         chain = self.citation_prompt | self.llm | JsonOutputParser()
         try:
             result = chain.invoke({
@@ -132,7 +121,6 @@ class LLMGrader:
             return result
         except Exception:
             return {"citation_relevance": 0, "citation_support": 0, "reason": "UNSUPPORTED"}
-
 
 class EvaluationSuite:   
     def __init__(self, cases: Optional[List[EvalCase]] = None):

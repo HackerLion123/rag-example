@@ -27,9 +27,8 @@ def create_grading_prompt():
     Expected Answer: {expected_answer}
     Generated Answer: {generated_answer}
 
-    Reranker Evidence (higher means more relevant support):
-    - reranker_top_score: {reranker_top_score}
-    - reranker_mean_score: {reranker_mean_score}
+    Cross Encoder Evidence (higher means more relevant support):
+    - answer_grade_score: {answer_grade_score}
 
     Rubric (binary):
     - correctness: 1 if answer is materially correct and based on given fact, else 0
@@ -37,7 +36,7 @@ def create_grading_prompt():
     - clarity: 1 if understandable and well structured, else 0
 
     overall: 1 ONLY if correctness=1 AND relevance=1 AND (completeness=1 OR expected_answer is vague).
-    passed: 1 ONLY if overall=1 AND reranker_top_score is not clearly contradictory to the answer.
+    passed: 1 ONLY if overall=1 AND answer_grade_score is not clearly contradictory to the answer.
 
     Respond ONLY with valid JSON (no extra text):
     {{"correctness":0, "relevance":0, "clarity":0, "overall":0, "reason":"INCORRECT"}}"""
@@ -47,8 +46,7 @@ def create_grading_prompt():
             "question",
             "expected_answer",
             "generated_answer",
-            "reranker_top_score",
-            "reranker_mean_score",
+            "answer_grade_score"
         ]
     )
 
