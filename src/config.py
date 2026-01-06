@@ -28,7 +28,16 @@ CHUNK_TABLE_SIZE = int(os.getenv("CHUNK_TABLE_SIZE", "2000"))
 CHUNK_TABLE_OVERLAP = int(os.getenv("CHUNK_TABLE_OVERLAP", "200"))
 
 
-RERANKER_MODEL = os.getenv("RERANKER_MODEL", "cross-encoder/ms-marco-MiniLM-L-6-v2")
+RERANKER_TYPE = os.getenv("RERANKER_TYPE", "bi").lower()
+
+BIENCODER_RERANKER_MODEL = os.getenv(
+    "BIENCODER_RERANKER_MODEL",
+    "sentence-transformers/all-MiniLM-L6-v2",
+)
+CROSSENCODER_RERANKER_MODEL = os.getenv(
+    "CROSSENCODER_RERANKER_MODEL",
+    "cross-encoder/ms-marco-MiniLM-L-6-v2",
+)
 RERANK_TOP_K = int(os.getenv("RERANK_TOP_K", "3"))
 RETRIEVER_TOP_K = int(os.getenv("RETRIEVER_TOP_K", "10"))
 

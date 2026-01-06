@@ -8,7 +8,7 @@ from langchain_core.documents import Document
 from src.models.agent import create_agent, get_llm_client
 from src.models.schemas import EvalCase, EvalResult
 from src.models.prompt import create_grading_prompt, create_citation_eval_prompt
-from src.models.reranker import SentenceTransformerReranker
+from src.models.reranker import create_reranker
 import logging
 
 logger = logging.getLogger(__name__)
@@ -33,9 +33,9 @@ class LLMGrader:
         self.citation_prompt = create_citation_eval_prompt()
         self._reranker = None
 
-    def _get_reranker(self) -> SentenceTransformerReranker:
+    def _get_reranker(self):
         if self._reranker is None:
-            self._reranker = SentenceTransformerReranker()
+            self._reranker = create_reranker()
         return self._reranker
 
     def reranker_metrics(self, question: str, citations: List[dict]) -> dict:

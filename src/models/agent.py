@@ -23,9 +23,6 @@ def get_llm_client() -> ChatOllama:
     """
     Create and return an Ollama LLM client.
     
-    Args:
-        llm_provider: Optional provider name (reserved for future use).
-    
     Returns:
         ChatOllama instance with configured settings.
     """
