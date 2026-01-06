@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "timestamp": "2026-01-06T10:27:10.145638",
+    "timestamp": "2026-01-06T10:44:24.482989",
     "total_cases": 9,
     "version": "1.0.0"
   },
@@ -16,7 +16,7 @@
     "clarity": 0.7777777777777778,
     "overall": 0.7777777777777778,
     "citation_relevance": 1.0,
-    "citation_support": 0.8888888888888888
+    "citation_support": 1.0
   },
   "category_breakdown": {
     "general": {
@@ -43,7 +43,7 @@
         "clarity": 0,
         "overall": 0,
         "reason": "OK",
-        "answer_grade_score": 0.0018846994263469407,
+        "answer_grade_score": 0.0030876071104558858,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -52,17 +52,17 @@
     {
       "case_id": "case_003",
       "question": "What are the key procedures mentioned for drilling?",
-      "reason": "MISSING",
+      "reason": "OK",
       "scores": {
         "correctness": 0,
         "relevance": 0,
         "clarity": 0,
         "overall": 0,
-        "reason": "MISSING",
-        "answer_grade_score": 0.9987974290299004,
+        "reason": "OK",
+        "answer_grade_score": 0.9999750331019912,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
-        "citation_support": 0
+        "citation_support": 1
       }
     }
   ],
@@ -70,9 +70,15 @@
     {
       "case_id": "case_001",
       "question": "what are few drills techiques?",
-      "generated_answer": "Cable tool/percussion drilling is a technique involving hoisting a heavy tool and striking it down on the ground. Drilling can be done via percussion/rotation.",
+      "generated_answer": "Drilling techniques include percussion/rotation and cable tool/percussion drilling. Cable tool/percussion drilling involves hoisting a heavy tool and striking it down on the ground, similar to construction sites.",
       "expected_answer": "(1) Cable tool/percussion drilling\u2014repeatedly \n             lifting and dropping a heavy tool to break rock; simple but slow and typically used for shallow wells. \n             (2) Coring\u2014uses rotary-type equipment but is designed to recover core samples for formation evaluation.",
       "citations": [
+        {
+          "source": "docs/Drilling Engineering Concepts Part 1.pdf",
+          "page": 12,
+          "slide": null,
+          "relevant_text": "Equipment to Drill / Types of Rigs \n\u00fcHistorically\nthe\ndrilling\nprocess\nhas\nevolved\nfrom\nreciprocating type drilling to the rotary drilling. Most of the\nrigs operating today barring a few experimental "
+        },
         {
           "source": "docs/Drilling Engineering Concepts Part 1.pdf",
           "page": 7,
@@ -84,12 +90,6 @@
           "page": 8,
           "slide": null,
           "relevant_text": "Drilling Techniques / Processes (Cable tool) \n\u00fcDrilling can be done via Percussion / rotation and the\nequipment required change based on the drilling technique\nused.\n\u00fcCable tool / percussion drilling "
-        },
-        {
-          "source": "docs/Drilling Engineering Concepts Part 4.pdf",
-          "page": 1,
-          "slide": null,
-          "relevant_text": "DRILLING ENGINEERING \nCONCEPTS"
         }
       ],
       "confidence": 0.6000000000000001,
@@ -99,7 +99,7 @@
         "clarity": 0,
         "overall": 0,
         "reason": "OK",
-        "answer_grade_score": 0.0018846994263469407,
+        "answer_grade_score": 0.0030876071104558858,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -150,26 +150,26 @@
     {
       "case_id": "case_003",
       "question": "What are the key procedures mentioned for drilling?",
-      "generated_answer": "I am sorry, but the provided context does not contain information about the key procedures mentioned for drilling.",
+      "generated_answer": "The key procedure mentioned for drilling is cable tool/percussion drilling, which involves hoisting a heavy tool and striking it down on the ground.",
       "expected_answer": "Key procedures highlighted include building and executing a drilling fluids (mud) program: gather pore pressure and casing design inputs; identify geological hazards and set mud weights; check hole geometry, hydraulics and ECD constraints and set target rheology/viscosities; define maximum acceptable fluid loss; select mud systems by hole section; define critical fluid properties and monitoring plan; align the mud plan with the overall well plan; determine required materials and logistics; write clear breakover instructions between sections; and prepare contingency plans for expected problems. Operationally, mud engineers maintain and test fluid properties and adjust treatment as drilling conditions change, while mud logging monitors zone progress and reports key drilling indicators.",
       "citations": [
         {
-          "source": "docs/Drilling Engineering Concepts Part 4.pdf",
-          "page": 1,
+          "source": "docs/Drilling Engineering Concepts Part 1.pdf",
+          "page": 7,
           "slide": null,
-          "relevant_text": "DRILLING ENGINEERING \nCONCEPTS"
+          "relevant_text": "Drilling Techniques / Processes (Cable tool) \n\u00fcDrilling can be done via Percussion / rotation and the\nequipment required change based on the drilling technique\nused.\n\u00fcCable tool / percussion drilling "
         },
         {
           "source": "docs/Drilling Engineering Concepts Part 1.pdf",
-          "page": 1,
+          "page": 8,
           "slide": null,
-          "relevant_text": "DRILLING ENGINEERING \nCONCEPTS"
+          "relevant_text": "Drilling Techniques / Processes (Cable tool) \n\u00fcDrilling can be done via Percussion / rotation and the\nequipment required change based on the drilling technique\nused.\n\u00fcCable tool / percussion drilling "
         },
         {
-          "source": "docs/Drilling Engineering Concepts Part 3.pdf",
-          "page": 1,
+          "source": "docs/Drilling Engineering Concepts Part 2.pdf",
+          "page": 32,
           "slide": null,
-          "relevant_text": "DRILLING ENGINEERING \nCONCEPTS"
+          "relevant_text": "ought to be evaluated.  Following basic information is required : \n\u2022The purpose of the well (exploratory or development drilling) \n\u2022Geological cross-sections that should consist of type of formations,"
         }
       ],
       "confidence": 0.6000000000000001,
@@ -178,38 +178,38 @@
         "relevance": 0,
         "clarity": 0,
         "overall": 0,
-        "reason": "MISSING",
-        "answer_grade_score": 0.9987974290299004,
+        "reason": "OK",
+        "answer_grade_score": 0.9999750331019912,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
-        "citation_support": 0
+        "citation_support": 1
       },
       "passed": false,
-      "failure_reason": "MISSING"
+      "failure_reason": "OK"
     },
     {
       "case_id": "case_004",
       "question": "when should we drill?",
-      "generated_answer": "The G&G folk help to answer when to drill. They review events over the geological time scale and current history, looking for signs of earth crust movement and analyzing causes such as change in thrust/strike/slip.",
+      "generated_answer": "The G&G folk help to answer when, where, and what to drill. They review events over the geological time scale and current history, looking for signs of earth crust movement, analyzing causes such as change in thrust/strike/slip, and determining the location to drill.",
       "expected_answer": null,
       "citations": [
         {
           "source": "docs/Drilling Engineering Concepts Part 1.pdf",
           "page": 11,
           "slide": null,
-          "relevant_text": "Why Drill (+ W ?) Summary\n\u00fcDrilling is required for any/all of following (And More\u2026.???) :\n\u00fcTo collect data related to the formation\n\u00fcTo establish presence of hydrocarbon in the formation\n\u00fcTo provide "
+          "relevant_text": "\u00fcThe G&G folk help to answers when where and what to drill.\n\u00fcHow to Drill caries in techniques processes\n\u00fcLocations can be simple or Complex, we have the solutions !!"
+        },
+        {
+          "source": "docs/Drilling Engineering Concepts Part 2.pdf",
+          "page": 32,
+          "slide": null,
+          "relevant_text": "ought to be evaluated.  Following basic information is required : \n\u2022The purpose of the well (exploratory or development drilling) \n\u2022Geological cross-sections that should consist of type of formations,"
         },
         {
           "source": "docs/Drilling Engineering Concepts Part 1.pdf",
           "page": 6,
           "slide": null,
           "relevant_text": "\u2026When, What  and Where To Drill\n\u00fcG&G folks also review the events over the Geological time\nscale / in current history and look for the signs of earth crust\nmovement , analyse the causes such as change"
-        },
-        {
-          "source": "docs/Drilling Engineering Concepts Part 4.pdf",
-          "page": 1,
-          "slide": null,
-          "relevant_text": "DRILLING ENGINEERING \nCONCEPTS"
         }
       ],
       "confidence": 0.6000000000000001,
@@ -219,7 +219,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.8679917407870922,
+        "answer_grade_score": 0.8588918437393207,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -230,26 +230,26 @@
     {
       "case_id": "case_005",
       "question": "What training materials are available?",
-      "generated_answer": "There are no training materials mentioned in the provided text. The text references LCM products such as ground walnut hulls, cottonseed hulls, sawdust, cellophane flakes, fibrous materials like ground leather and cane fibre, and mentions an \"Human Input\" tool.",
+      "generated_answer": "The training materials include understanding of clays, polymers, weight materials, and additives to control various properties. These include sodium and calcium montmorillonite, attapulgite, CMC (carboxymethylcellulose), HEC (hydroxyethylcellulose), barite, galena, iron oxides, and hematite.",
       "expected_answer": null,
       "citations": [
         {
           "source": "docs/Drilling Engineering Concepts Part 3.pdf",
           "page": 30,
           "slide": null,
-          "relevant_text": "rate at which the zones can take mud may allow the hydrostatic \npressure to be sufficiently reduced to allow a kick to occur. LCM \nproducts that have successfully been applied are items such as \ngroun"
+          "relevant_text": "pressure to be sufficiently reduced to allow a kick to occur. LCM \nproducts that have successfully been applied are items such as \nground walnut hulls, cottonseed hulls, sawdust, cellophane flakes, \na"
         },
         {
-          "source": "docs/Drilling Engineering Concepts Part 2.pdf",
-          "page": 16,
+          "source": "docs/Drilling Engineering Concepts Part 4.pdf",
+          "page": 14,
           "slide": null,
-          "relevant_text": "Drilling Rig Systems\nBesides the main systems described above there are several other  set of equipment  / \nUnits for supporting drilling operations  which include Engines (power supply) and SCADA \n(S"
+          "relevant_text": "Introduction to Directional Drilling \nDirectional drilling equipment and techniques have become an involved discipline. In addition to a variety of \navailable equipment, other variables such as bits, "
         },
         {
-          "source": "docs/2023-llmbc-agents-chase.pptx",
-          "page": null,
-          "slide": 9,
-          "relevant_text": "Challenge #2: Getting them to not use tools when not needed\nInstructions\n\u201cHuman Input\u201d tool"
+          "source": "docs/Drilling Engineering Concepts Part 3.pdf",
+          "page": 21,
+          "slide": null,
+          "relevant_text": "as clays, polymers, weight materials, and additives to control various \nproperties.\nThe clays include sodium and calcium montmorillonite, attapulgite, and \nsubgroups of montmorillonite. \nPolymers cove"
         }
       ],
       "confidence": 0.6000000000000001,
@@ -259,7 +259,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.996440333631082,
+        "answer_grade_score": 0.9993286239654308,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -270,7 +270,7 @@
     {
       "case_id": "case_006",
       "question": "give a summary on drilling fluids",
-      "generated_answer": "Drilling fluids, often called \"mud,\" are liquids or gases used in drilling operations to achieve specific purposes. The concept was first conceived by Fauvelle in 1845. They can be air, natural gas, water, oil, or a combination of liquids with chemicals and additives. A comprehensive mud plan is crucial for efficient drilling.\n\nWater-based mud (WBM) is the most frequently used system, with water as the continuous phase. It may contain oil or air. Fresh water serves as the base fluid when adding chemicals like clays (sodium and calcium montmorillonite, attapulgite), polymers (CMC, HEC), and weight materials (barite, galena). Special additives control properties like fluid loss, viscosity, gel strength, and pH.\n\nA priority for drilling fluids is minimizing formation damage by forming a cake against porous media and ensuring the base fluid is compatible with reservoir fluids. Alterations to the liquid to solids ratio can cause premature sticking.",
+      "generated_answer": "Drilling fluids, often called \"mud,\" are liquids or gases used in drilling operations, first conceived by Fauvelle in 1845. A detailed mud plan is essential for drilling. The most common type is Water-Based Mud (WBM), which uses water as the base fluid, though it can contain oil or air. Fresh water is often used as a base fluid when adding chemicals to control properties. Viscosity reducers are additives used to address issues caused by high viscosity, such as excessive yield points and gel strengths, which can lead to problems like lost circulation and high pump pressures.",
       "expected_answer": null,
       "citations": [
         {
@@ -287,9 +287,9 @@
         },
         {
           "source": "docs/Drilling Engineering Concepts Part 3.pdf",
-          "page": 20,
+          "page": 27,
           "slide": null,
-          "relevant_text": "Drilling Fluids \nMinimizing  Formation damage is one of the priority requirement of the mud.  During drilling \nthe mud is expected to form a cake against the porous media and only the filtrate can tra"
+          "relevant_text": "Drilling Fluids - Additives \nViscosity Reducers. A high viscosity caused by excessive colloids, undesirable drill solids, or contaminants can \ncause several drilling problems. Associated with high vis"
         }
       ],
       "confidence": 0.6000000000000001,
@@ -299,7 +299,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9905777932406348,
+        "answer_grade_score": 0.9873093315416726,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -310,7 +310,7 @@
     {
       "case_id": "case_007",
       "question": "explain about bottom hole assembly?",
-      "generated_answer": "A Bottom Hole Assembly (BHA) consists of drillcollars, HWDP, stabilizers, and other accessories that are primary components of the drillstring. BHA design is crucial for controlling the direction of wells, whether vertical or deviated, to achieve target objectives.\n\nThere are three ways a BHA can be used for directional control: the pendulum principle, the fulcrum principle, and the packed hole stabilization principle. Specialty tools exist that don't use bent subs; instead, they use three pads within a non-rotating sleeve, controlled by mud-powered actuators, to adjust hole angles. \n\nStabilizers, placed above the drill bit and along the BHA, control hole deviation, dogleg severity, and prevent differential sticking by centralizing and stiffening the BHA, which improves bit performance. Stabilizers are either rotating or non-rotating.",
+      "generated_answer": "A Bottom Hole Assembly (BHA) is a crucial component of the drillstring, comprising drillcollars, Heavy Weight Drill Pipe (HWDP), stabilizers, and other accessories. It's essential for controlling the direction of wells, whether vertical or deviated, to meet target objectives.\n\nHWDP, used between standard drillpipe and drillcollars, maintains a similar outer diameter but has a smaller inner diameter and an extra tool joint, providing a smooth transition in drillstring components.\n\nStabilizers are tools positioned above the drill bit and within the BHA to manage hole deviation, stiffness, and prevent differential sticking by centralizing the BHA. They improve bit performance. Stabilizers are either rotating or non-rotating.",
       "expected_answer": null,
       "citations": [
         {
@@ -321,9 +321,9 @@
         },
         {
           "source": "docs/Drilling Engineering Concepts Part 2.pdf",
-          "page": 30,
+          "page": 22,
           "slide": null,
-          "relevant_text": "Bottom Hole Assembly \u2013 Specialty Tools RSS\nThese systems do not use bent subs for affecting hole angles. \nChanges in hole angles are brought about by the action of \nthree pads contained within a non-r"
+          "relevant_text": "Bottom Hole Assembly ( HWDP)  \nThe Heavy Weight Drill Pipe (HWDP)  has the same OD as a standard drillpipe but with \nmuch reduced inside diameter (usually 3\") and has an extra tool joint. \nHWDP is use"
         },
         {
           "source": "docs/Drilling Engineering Concepts Part 2.pdf",
@@ -339,7 +339,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9989985796311924,
+        "answer_grade_score": 0.9995664170838227,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -350,7 +350,7 @@
     {
       "case_id": "case_008",
       "question": "explain about Cementing?",
-      "generated_answer": "Cementing is a technique used to place cement behind casing in a well, either in a single- or multi-stage process. The cement acts as a primary well barrier element, resolving hole problems, securing casing, isolating production zones, and providing an acceptable method for well abandonment.\n\nIn a single-stage technique, cement is pumped down the casing and up the annulus, with back-pressure valves preventing U-tubing. Casing setting depths are adjusted to protect the annular space and ensure good shoe placement.\n\nA multi-stage cement job begins like a single-stage effort, then subsequent stages are pumped through special port collars up the annulus.\n\nAPI cements, also known as Portland cements, are hydraulic cements that set up in water. They are manufactured by calcining limestone, clay, shale, and slag, then grinding the resulting clinker with gypsum. Components like lime, silica, alumina, and iron are crucial to the cement's properties, particularly its sulphate resistance, which API uses to specify cement for wells.",
+      "generated_answer": "Cementing is a crucial process in a well's life cycle, serving as a primary well barrier element. It involves placing cement behind the casing, typically using a single- or multi-stage technique. The process helps resolve hole problems, secures the casing, and isolates production zones. \n\nAPI cements, also known as Portland cements or hydraulic cements, set up in water. They are manufactured by heating limestone, clay, shale, and slag at high temperatures, then grinding the resulting clinker with gypsum. Additional components like sand, bauxite, and iron oxide may be added to adjust the chemical composition. Cement slurry is placed just before the high-pressure zone and to protect the annular space between the casing and borehole. For well abandonment, cement plugs are an acceptable method.",
       "expected_answer": null,
       "citations": [
         {
@@ -379,7 +379,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9962522015770067,
+        "answer_grade_score": 0.9948089083332081,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -390,7 +390,7 @@
     {
       "case_id": "case_009",
       "question": "explain about drilling fluid additives",
-      "generated_answer": "Drilling fluid additives are used to meet drilling requirements and manage viscosity. \n\n**Viscosity Reducers (Thinners and Dispersants):** These chemicals reduce viscosity by dispersing clay platelets, decreasing interparticle attraction and, in some cases, creating repulsion forces. Examples include lignosulfonates, lignins, and tannins.\n\n**Chemical Breakers:** Mild acids, like Clorox\u00ae, can break down polymer-generated viscosity. Pilot testing is recommended due to cost, and operations should wait 12-18 hours after addition.\n\n**Fluid Loss Agents:** These agents form thin, tough, semipermeable wall cakes to stabilize the hole and protect productive zones by controlling fluid loss.\n\n**Viscosifiers:** Materials like bentonites, attapulgite clays, and sub-bentonites increase viscosity, yield point, and gel strengths by increasing the number of particles and interparticle force.",
+      "generated_answer": "Drilling fluid additives are used to manage viscosity and meet drilling requirements. Viscosity reducers address high viscosity caused by colloids, drill solids, or contaminants, which can lead to increased equivalent circulating density and high pump pressures. Chemical breakers, like mild acids (e.g., Clorox\u00ae), can be used to thin polymer-generated viscosity. Pilot testing is recommended before using chemical breakers due to cost, and waiting 12-18 hours after addition is sometimes advisable. A viscometer measures plastic viscosity (PV) and yield point (YP) to monitor viscosity.",
       "expected_answer": null,
       "citations": [
         {
@@ -401,15 +401,15 @@
         },
         {
           "source": "docs/Drilling Engineering Concepts Part 3.pdf",
-          "page": 28,
-          "slide": null,
-          "relevant_text": "Drilling Fluid \u2013 Additives\nChemical Breakers. Viscosity generated by polymers can be treated with special chemicals to cause fluid thinning. These mild \nacids, such as Clorox@, have been used successf"
-        },
-        {
-          "source": "docs/Drilling Engineering Concepts Part 3.pdf",
           "page": 26,
           "slide": null,
           "relevant_text": "Drilling Fluid \u2013 Additives\nTo meet drilling requirements the mud uses several additives. Considering the requirement of carrying capacity \nviscosity must be managed and monitored. A viscometer is used"
+        },
+        {
+          "source": "docs/Drilling Engineering Concepts Part 3.pdf",
+          "page": 28,
+          "slide": null,
+          "relevant_text": "Drilling Fluid \u2013 Additives\nChemical Breakers. Viscosity generated by polymers can be treated with special chemicals to cause fluid thinning. These mild \nacids, such as Clorox@, have been used successf"
         }
       ],
       "confidence": 0.6000000000000001,
@@ -419,7 +419,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9991180346831005,
+        "answer_grade_score": 0.9991226170282822,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
