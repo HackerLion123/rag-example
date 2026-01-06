@@ -6,8 +6,9 @@ def create_ragqa_prompt():
     Use the following context to answer the question.
     If you don't know the answer, say that you don't know.
     Make sure your answer is relevant to the question and is based only on the provided context.
-    Keep the answer concise and use bullet points where appropriate.
-
+    Keep the answer concise with not more than 200 words.
+    Directly answer without adding extra text. 
+    
     Question: {question}
     Context: {context}
     Answer:"""
@@ -31,11 +32,11 @@ def create_grading_prompt():
     - reranker_mean_score: {reranker_mean_score}
 
     Rubric (binary):
-    - correctness: 1 if answer is materially correct, else 0
-    - relevance: 1 if focused on the question, else 0
+    - correctness: 1 if answer is materially correct and based on given fact, else 0
+    - relevance: 1 if the answer is focused on the answering the question, else 0
     - clarity: 1 if understandable and well structured, else 0
 
-    overall: 1 ONLY if correctness=1 AND relevance=1 AND clarity=1 AND (completeness=1 OR expected_answer is vague).
+    overall: 1 ONLY if correctness=1 AND relevance=1 AND (completeness=1 OR expected_answer is vague).
     passed: 1 ONLY if overall=1 AND reranker_top_score is not clearly contradictory to the answer.
 
     Respond ONLY with valid JSON (no extra text):

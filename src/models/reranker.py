@@ -9,6 +9,8 @@ from sentence_transformers import CrossEncoder, SentenceTransformer, util
 from src import config
 from src.models.schemas import RerankResult
 
+import math
+
 
 @lru_cache(maxsize=2)
 def _get_biencoder_model(model_name: str) -> SentenceTransformer:
@@ -67,8 +69,9 @@ class CrossEncoderReranker:
         pairs = [(query, text) for text in doc_texts]
 
         scores = model.predict(pairs)
-        # scores can be numpy array / list; normalize to python floats
-        scores_list = [float(s) for s in scores]
+        
+        # applying sigmoid to convert logits to [0,1] scores
+        scores_list = scores_list = [1.0 / (1.0 + math.exp(-score)) for score in scores]
 
         ranked_indices = sorted(range(len(scores_list)), key=lambda i: scores_list[i], reverse=True)
 
@@ -94,7 +97,8 @@ def rerank_documents(query: str, documents: Iterable[Document], *, top_k: int = 
 
     reranker = create_reranker()
     ranked = reranker.rerank(query, docs_list)
+    
     if not ranked:
         return docs_list[: max(1, top_k)]
-
+    
     return [r.document for r in ranked[: max(1, top_k)]]

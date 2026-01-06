@@ -40,6 +40,8 @@ class LLMGrader:
 
     def reranker_metrics(self, question: str, citations: List[dict]) -> dict:
         """Compute deterministic SentenceTransformer reranker metrics over the provided citations."""
+        reranker = self._get_reranker()
+        
         if not citations:
             return {
                 "reranker_model": None,
@@ -51,19 +53,18 @@ class LLMGrader:
         documents: List[Document] = []
         for idx, c in enumerate(citations):
             text = (c or {}).get("relevant_text") or ""
-            if not text.strip():
-                continue
-            documents.append(Document(page_content=text, metadata={"citation_index": idx}))
+            if text.strip():
+                documents.append(Document(page_content=text, metadata={"citation_index": idx}))
 
         if not documents:
             return {
-                "reranker_model": None,
+                "reranker_model": reranker.model_name,
                 "reranker_top_score": 0.0,
                 "reranker_mean_score": 0.0,
                 "reranker_n": 0,
             }
 
-        reranker = self._get_reranker()
+        
         ranked = reranker.rerank(question, documents)
         if not ranked:
             return {
@@ -78,8 +79,8 @@ class LLMGrader:
         mean_score = (sum(scores) / len(scores)) if scores else 0.0
         return {
             "reranker_model": reranker.model_name,
-            "reranker_top_score": float(top_score),
-            "reranker_mean_score": float(mean_score),
+            "reranker_top_score": round(float(top_score),2),
+            "reranker_mean_score": round(float(mean_score),2),
             "reranker_n": len(scores),
         }
 
