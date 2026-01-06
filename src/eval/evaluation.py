@@ -14,9 +14,13 @@ import logging
 logger = logging.getLogger(__name__)
 
 EVAL_CASES = [
-    EvalCase(id="case_001", question="what are few drills techiques?", category="general"),
+    EvalCase(id="case_001", question="what are few drills techiques?", category="general", 
+             expected_answer="""(1) Cable tool/percussion drilling—repeatedly 
+             lifting and dropping a heavy tool to break rock; simple but slow and typically used for shallow wells. 
+             (2) Coring—uses rotary-type equipment but is designed to recover core samples for formation evaluation."""),
     EvalCase(id="case_002", question="Tell me about llm agents", category="summary"),
-    EvalCase(id="case_003", question="What are the key procedures mentioned for drilling?", category="summary"),
+    EvalCase(id="case_003", question="What are the key procedures mentioned for drilling?", category="summary",
+             expected_answer="Key procedures highlighted include building and executing a drilling fluids (mud) program: gather pore pressure and casing design inputs; identify geological hazards and set mud weights; check hole geometry, hydraulics and ECD constraints and set target rheology/viscosities; define maximum acceptable fluid loss; select mud systems by hole section; define critical fluid properties and monitoring plan; align the mud plan with the overall well plan; determine required materials and logistics; write clear breakover instructions between sections; and prepare contingency plans for expected problems. Operationally, mud engineers maintain and test fluid properties and adjust treatment as drilling conditions change, while mud logging monitors zone progress and reports key drilling indicators."),
     EvalCase(id="case_004", question="when should we drill?", category="general"),
     EvalCase(id="case_005", question="What training materials are available?", category="training"),
     EvalCase(id="case_006", question="give a summary on drilling fluids", category="summary"),

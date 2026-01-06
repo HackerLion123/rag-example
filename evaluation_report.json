@@ -1,27 +1,27 @@
 {
   "metadata": {
-    "timestamp": "2026-01-06T09:38:48.171877",
+    "timestamp": "2026-01-06T10:01:19.900550",
     "total_cases": 9,
     "version": "1.0.0"
   },
   "summary": {
-    "passed": 6,
-    "failed": 3,
-    "pass_rate": 0.6666666666666666
+    "passed": 7,
+    "failed": 2,
+    "pass_rate": 0.7777777777777778
   },
   "average_scores": {
-    "correctness": 0.6666666666666666,
+    "correctness": 0.7777777777777778,
     "completeness": 0,
-    "relevance": 0.6666666666666666,
-    "clarity": 0.6666666666666666,
-    "overall": 0.6666666666666666,
+    "relevance": 0.7777777777777778,
+    "clarity": 0.7777777777777778,
+    "overall": 0.7777777777777778,
     "citation_relevance": 1.0,
     "citation_support": 0.8888888888888888
   },
   "category_breakdown": {
     "general": {
-      "passed": 0,
-      "failed": 2
+      "passed": 1,
+      "failed": 1
     },
     "summary": {
       "passed": 5,
@@ -59,26 +59,10 @@
         "clarity": 0,
         "overall": 0,
         "reason": "MISSING",
-        "answer_grade_score": 0.9293127567236706,
+        "answer_grade_score": 0.9987974290299004,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 0
-      }
-    },
-    {
-      "case_id": "case_004",
-      "question": "when should we drill?",
-      "reason": "OK",
-      "scores": {
-        "correctness": 0,
-        "relevance": 0,
-        "clarity": 0,
-        "overall": 0,
-        "reason": "OK",
-        "answer_grade_score": 0.78270657978202,
-        "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
-        "citation_relevance": 1,
-        "citation_support": 1
       }
     }
   ],
@@ -87,7 +71,7 @@
       "case_id": "case_001",
       "question": "what are few drills techiques?",
       "generated_answer": "Cable tool/percussion drilling is a technique involving hoisting a heavy tool and striking it down on the ground. Drilling can be done via percussion/rotation.",
-      "expected_answer": null,
+      "expected_answer": "(1) Cable tool/percussion drilling\u2014repeatedly \n             lifting and dropping a heavy tool to break rock; simple but slow and typically used for shallow wells. \n             (2) Coring\u2014uses rotary-type equipment but is designed to recover core samples for formation evaluation.",
       "citations": [
         {
           "source": "docs/Drilling Engineering Concepts Part 1.pdf",
@@ -126,7 +110,7 @@
     {
       "case_id": "case_002",
       "question": "Tell me about llm agents",
-      "generated_answer": "LLM agents use LLMs as a \"reasoning engine\" to perform a non-deterministic sequence of actions. They connect LLMs to external data sources and computation, such as search, APIs, databases, calculators, and code execution. \n\nAgents are useful for tasks involving multiple steps, error recovery, and complex queries, like translating natural language to SQL queries and back. \n\nChallenges include ensuring appropriate tool usage, parsing LLM output, maintaining memory of previous steps, handling long observations, and staying focused.",
+      "generated_answer": "LLM agents utilize an LLM as a \"reasoning engine\" to execute a non-deterministic sequence of actions. They are used to connect LLMs to external data sources and computational tools like search engines, APIs, databases, calculators, and code execution environments.\n\nA key benefit is the ability to handle complex tasks involving multiple steps, such as SQL queries, where a chain of actions (e.g., Natural Language -> SQL Query -> Result -> Natural Language) is needed. Agents can also recover from errors and manage multi-hop tasks.\n\nChallenges include ensuring appropriate tool usage, parsing LLM output for tool invocation, maintaining memory of previous steps, incorporating long observations, and staying focused.",
       "expected_answer": null,
       "citations": [
         {
@@ -155,7 +139,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9963803684562809,
+        "answer_grade_score": 0.9939938113502506,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -166,8 +150,8 @@
     {
       "case_id": "case_003",
       "question": "What are the key procedures mentioned for drilling?",
-      "generated_answer": "I am sorry, but the provided context does not mention any procedures for drilling.",
-      "expected_answer": null,
+      "generated_answer": "I am sorry, but the provided context does not contain information about the key procedures mentioned for drilling.",
+      "expected_answer": "Key procedures highlighted include building and executing a drilling fluids (mud) program: gather pore pressure and casing design inputs; identify geological hazards and set mud weights; check hole geometry, hydraulics and ECD constraints and set target rheology/viscosities; define maximum acceptable fluid loss; select mud systems by hole section; define critical fluid properties and monitoring plan; align the mud plan with the overall well plan; determine required materials and logistics; write clear breakover instructions between sections; and prepare contingency plans for expected problems. Operationally, mud engineers maintain and test fluid properties and adjust treatment as drilling conditions change, while mud logging monitors zone progress and reports key drilling indicators.",
       "citations": [
         {
           "source": "docs/Drilling Engineering Concepts Part 4.pdf",
@@ -195,7 +179,7 @@
         "clarity": 0,
         "overall": 0,
         "reason": "MISSING",
-        "answer_grade_score": 0.9293127567236706,
+        "answer_grade_score": 0.9987974290299004,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 0
@@ -206,7 +190,7 @@
     {
       "case_id": "case_004",
       "question": "when should we drill?",
-      "generated_answer": "The G&G folk help to answer when to drill. They review events over the geological time scale and current history, looking for signs of earth crust movement and analyzing causes such as change in thrust/strike/slip. Seismic surveys are also used to collect data about sound wave velocities through the rock matrix.",
+      "generated_answer": "The G&G folk help to answer when to drill. They review events over the geological time scale and current history, looking for signs of earth crust movement and analyzing causes such as change in thrust/strike/slip.",
       "expected_answer": null,
       "citations": [
         {
@@ -230,23 +214,23 @@
       ],
       "confidence": 0.6000000000000001,
       "scores": {
-        "correctness": 0,
-        "relevance": 0,
-        "clarity": 0,
-        "overall": 0,
+        "correctness": 1,
+        "relevance": 1,
+        "clarity": 1,
+        "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.78270657978202,
+        "answer_grade_score": 0.8679917407870922,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
       },
-      "passed": false,
-      "failure_reason": "OK"
+      "passed": true,
+      "failure_reason": null
     },
     {
       "case_id": "case_005",
       "question": "What training materials are available?",
-      "generated_answer": "The training materials include instructions for the \u201cHuman Input\u201d tool.",
+      "generated_answer": "There are no training materials mentioned in the provided text. The text references LCM products such as ground walnut hulls, cottonseed hulls, sawdust, cellophane flakes, fibrous materials like ground leather and cane fibre, and mentions an \"Human Input\" tool.",
       "expected_answer": null,
       "citations": [
         {
@@ -275,7 +259,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9882303462490849,
+        "answer_grade_score": 0.996440333631082,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -286,7 +270,7 @@
     {
       "case_id": "case_006",
       "question": "give a summary on drilling fluids",
-      "generated_answer": "Drilling fluids, often called \"mud,\" are liquids or gases used in drilling operations to achieve specific purposes. First conceived by Fauvelle in 1845, they are essential for removing cuttings from the borehole and a complete mud plan is crucial for efficient drilling. \n\nDrilling fluids can be air, natural gas, water, oil, or a combination, often incorporating chemicals and additives. Water-based mud (WBM) is the most frequently used, with water as the continuous phase. These fluids are designed to minimize formation damage by creating a filter cake and ensuring the base fluid is compatible with reservoir fluids. They also aim to avoid differential sticking and improve drilling rates.",
+      "generated_answer": "Drilling fluids, often called \"mud,\" are liquids or gases used in drilling operations to achieve specific purposes. The concept was first conceived by Fauvelle in 1845. They can be air, natural gas, water, oil, or a combination of liquids with chemicals and additives. A comprehensive mud plan is crucial for efficient drilling.\n\nWater-based mud (WBM) is the most frequently used system, with water as the continuous phase. It may contain oil or air. Fresh water serves as the base fluid when adding chemicals like clays (sodium and calcium montmorillonite, attapulgite), polymers (CMC, HEC), and weight materials (barite, galena). Special additives control properties like fluid loss, viscosity, gel strength, and pH.\n\nA priority for drilling fluids is minimizing formation damage by forming a cake against porous media and ensuring the base fluid is compatible with reservoir fluids. Alterations to the liquid to solids ratio can cause premature sticking.",
       "expected_answer": null,
       "citations": [
         {
@@ -315,7 +299,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9914653464135359,
+        "answer_grade_score": 0.9905777932406348,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -326,7 +310,7 @@
     {
       "case_id": "case_007",
       "question": "explain about bottom hole assembly?",
-      "generated_answer": "A Bottom Hole Assembly (BHA) is a crucial component of the drillstring, comprising drillcollars, HWDP, stabilizers, and other accessories. It's essential for controlling the direction of wells, whether vertical or deviated, to achieve target objectives. \n\nThere are three methods for directional control using a BHA: the pendulum principle, the fulcrum principle, and the packed hole stabilization principle. Some systems utilize specialty tools that don't use bent subs, instead employing three pads within a non-rotating sleeve to adjust hole angles using mud-powered actuators. Stabilizers, placed above the drill bit, control hole deviation and prevent differential sticking by centralizing and stiffening the BHA. These stabilizers can be rotating or non-rotating.",
+      "generated_answer": "A Bottom Hole Assembly (BHA) consists of drillcollars, HWDP, stabilizers, and other accessories that are primary components of the drillstring. BHA design is crucial for controlling the direction of wells, whether vertical or deviated, to achieve target objectives.\n\nThere are three ways a BHA can be used for directional control: the pendulum principle, the fulcrum principle, and the packed hole stabilization principle. Specialty tools exist that don't use bent subs; instead, they use three pads within a non-rotating sleeve, controlled by mud-powered actuators, to adjust hole angles. \n\nStabilizers, placed above the drill bit and along the BHA, control hole deviation, dogleg severity, and prevent differential sticking by centralizing and stiffening the BHA, which improves bit performance. Stabilizers are either rotating or non-rotating.",
       "expected_answer": null,
       "citations": [
         {
@@ -355,7 +339,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9996409046253624,
+        "answer_grade_score": 0.9989985796311924,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -366,7 +350,7 @@
     {
       "case_id": "case_008",
       "question": "explain about Cementing?",
-      "generated_answer": "Cementing is a technique used to place cement behind casing in a well, either in a single- or multi-stage process. In a single-stage technique, cement is pumped down the casing and up the annulus, with back-pressure valves preventing U-tubing. Cement slurry is placed before high-pressure zones to protect the annular space.\n\nFor multi-stage cementing, the initial stage resembles a single-stage effort, followed by subsequent stages pumped through special port collars. Cement acts as a primary well barrier element, resolving hole problems, securing casing, isolating production zones, and is an acceptable method for well abandonment. API cements, also known as Portland cements, are hydraulic cements that set up in water and are manufactured from limestone, clay, shale, and slag.",
+      "generated_answer": "Cementing is a technique used to place cement behind casing in a well, either in a single- or multi-stage process. The cement acts as a primary well barrier element, resolving hole problems, securing casing, isolating production zones, and providing an acceptable method for well abandonment.\n\nIn a single-stage technique, cement is pumped down the casing and up the annulus, with back-pressure valves preventing U-tubing. Casing setting depths are adjusted to protect the annular space and ensure good shoe placement.\n\nA multi-stage cement job begins like a single-stage effort, then subsequent stages are pumped through special port collars up the annulus.\n\nAPI cements, also known as Portland cements, are hydraulic cements that set up in water. They are manufactured by calcining limestone, clay, shale, and slag, then grinding the resulting clinker with gypsum. Components like lime, silica, alumina, and iron are crucial to the cement's properties, particularly its sulphate resistance, which API uses to specify cement for wells.",
       "expected_answer": null,
       "citations": [
         {
@@ -395,7 +379,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9958357237376402,
+        "answer_grade_score": 0.9962522015770067,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -406,7 +390,7 @@
     {
       "case_id": "case_009",
       "question": "explain about drilling fluid additives",
-      "generated_answer": "Drilling fluid additives are used to manage viscosity and meet drilling requirements. Viscosity reducers, also known as thinners and dispersants, reduce high viscosity by dispersing clay platelets and lessening interparticle attraction. Organic thinners include lignosulfonates, lignins, and tannins. Chemical breakers, like Clorox\u00ae, can break down polymer-generated viscosity, but pilot testing is recommended due to cost. Viscosifiers, such as clays (bentonites, attapulgite, and sub-bentonites), increase viscosity, yield point, and gel strengths. Fluid loss agents form thin, tough walls to stabilize the hole and protect productive zones.",
+      "generated_answer": "Drilling fluid additives are used to meet drilling requirements and manage viscosity. \n\n**Viscosity Reducers (Thinners and Dispersants):** These chemicals reduce viscosity by dispersing clay platelets, decreasing interparticle attraction and, in some cases, creating repulsion forces. Examples include lignosulfonates, lignins, and tannins.\n\n**Chemical Breakers:** Mild acids, like Clorox\u00ae, can break down polymer-generated viscosity. Pilot testing is recommended due to cost, and operations should wait 12-18 hours after addition.\n\n**Fluid Loss Agents:** These agents form thin, tough, semipermeable wall cakes to stabilize the hole and protect productive zones by controlling fluid loss.\n\n**Viscosifiers:** Materials like bentonites, attapulgite clays, and sub-bentonites increase viscosity, yield point, and gel strengths by increasing the number of particles and interparticle force.",
       "expected_answer": null,
       "citations": [
         {
@@ -435,7 +419,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9992067427017517,
+        "answer_grade_score": 0.9991180346831005,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
