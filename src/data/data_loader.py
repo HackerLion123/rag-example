@@ -145,8 +145,7 @@ def chunk_documents(docs: List[Document]) -> List[Document]:
     chunk_overlap = int(config.CHUNK_OVERLAP)
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
-        chunk_overlap=chunk_overlap,
-        separators=["\n\n", "\n", " ", ""],
+        chunk_overlap=chunk_overlap
     )
     return splitter.split_documents(docs)
 
