@@ -20,8 +20,8 @@ LLM_CACHE_PATH = "data/cache/llm_cache.db"
 RAW_DATA_PATH = "docs/"
 
 
-CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "1000"))
-CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP", "200"))
+CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "500"))
+CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP", "120"))
 
 
 CHUNK_TABLE_SIZE = int(os.getenv("CHUNK_TABLE_SIZE", "2000"))
