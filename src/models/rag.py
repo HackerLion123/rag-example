@@ -15,7 +15,7 @@ def create_document_embedding():
     generate_embeddings(docs=docs)
 
 
-def create_retriever(top_k: int = 5):
+def create_retriever(top_k: int = None):
     top_k = top_k or config.RETRIEVER_TOP_K
 
     index_file = os.path.join(config.EMBEDDING_PATH, "index.faiss")
@@ -32,8 +32,9 @@ def create_retriever(top_k: int = 5):
 
 
 if __name__ == "__main__":
-    create_document_embedding()
+    # create_document_embedding()
     retriever = create_retriever()
-    docs = retriever.invoke("when to drill?")
+    docs = retriever.invoke("what are few drills techiques?")
     for doc in docs:
+        print(doc.page_content)
         print(doc.metadata)
