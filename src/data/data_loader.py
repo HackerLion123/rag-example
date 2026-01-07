@@ -41,10 +41,15 @@ def _load_pdf(file_path: str) -> List[Document]:
             "doc_type": "pdf",
             "doc_hash": file_hash(str(p)),
         }
+        temp = ""
         for page_index, page in enumerate(doc, start=1):
             text = (page.get_text("text") or "").strip()
-            if not text:
+            if not text or (len(text.split(" ")) < 8):
+                temp += text
                 continue
+            if temp:
+                text = temp + "\n" + text
+                temp = ""
             meta = dict(base_meta)
             meta["page"] = page_index
             docs.append(Document(page_content=text, metadata=meta))
@@ -78,7 +83,6 @@ def _load_docx(file_path: str) -> List[Document]:
     docs: List[Document] = []
     current_page = 1
     buffer: List[str] = []
-
     for para in doc.paragraphs:
         text = (para.text or "").strip()
         if text:
@@ -114,6 +118,7 @@ def _load_pptx(file_path: str) -> List[Document]:
 
     pres = Presentation(str(p))
     docs: List[Document] = []
+    temp = ""
     for slide_index, slide in enumerate(pres.slides, start=1):
         parts: List[str] = []
         for shape in slide.shapes:
@@ -123,8 +128,14 @@ def _load_pptx(file_path: str) -> List[Document]:
                     text = (shape.text or "").strip()
                 except Exception:
                     text = ""
+            if len(text.split(" ")) < 6:
+                temp += text + "\n"
+                continue
             if text:
-                parts.append(text)
+                if temp:
+                    parts.append(text + "\n" + temp)
+                else:
+                    parts.append(text)
         slide_text = "\n".join(parts).strip()
         if not slide_text:
             continue

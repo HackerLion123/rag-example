@@ -12,6 +12,11 @@ def create_document_embedding():
     data_loader = DataLoader()
     docs = data_loader.load(config.RAW_DATA_PATH)
     docs = chunk_documents(docs)
+    for doc in docs:
+        print(doc.page_content)
+        print()
+        print(doc.metadata)
+        print("\n\n")
     generate_embeddings(docs=docs)
 
 
@@ -32,7 +37,7 @@ def create_retriever(top_k: int = None):
 
 
 if __name__ == "__main__":
-    # create_document_embedding()
+    create_document_embedding()
     retriever = create_retriever()
     docs = retriever.invoke("what are few drills techiques?")
     for doc in docs:
