@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import numpy as np
 import hashlib
 import logging
 from pathlib import Path
@@ -12,6 +13,7 @@ from pptx import Presentation
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_core.documents import Document
+from langchain_ollama import OllamaEmbeddings
 
 from src import config
 
@@ -44,7 +46,7 @@ def _load_pdf(file_path: str) -> List[Document]:
         temp = ""
         for page_index, page in enumerate(doc, start=1):
             text = (page.get_text("text") or "").strip()
-            if not text or (len(text.split(" ")) < 8):
+            if not text or (len(text.split(" ")) < 20):
                 temp += text
                 continue
             if temp:
@@ -128,7 +130,7 @@ def _load_pptx(file_path: str) -> List[Document]:
                     text = (shape.text or "").strip()
                 except Exception:
                     text = ""
-            if len(text.split(" ")) < 6:
+            if len(text.split(" ")) < 20:
                 temp += text + "\n"
                 continue
             if text:
@@ -145,21 +147,87 @@ def _load_pptx(file_path: str) -> List[Document]:
     return docs
 
 
-def chunk_documents(docs: List[Document]) -> List[Document]:
-    """Chunk documents with a simple text splitter.
+def chunk_documents(
+    docs: List[Document],
+    method: str = "recursive",
+) -> List[Document] | NotImplementedError:
+    """Chunk documents with various strategies.
 
-    Because we load PDFs/PPTX/DOCX into page/slide-level docs first, chunking is
-    mostly a safety net for large pages/slides.
+    Args:
+        docs: List of Document objects to chunk.
+        method: Chunking method - "recursive", "semantic", or "late". Default: "recursive"
+    
+    Returns:
+        List of chunked Document objects.
     """
-
+    if not docs:
+        return []
+    
     chunk_size = int(config.CHUNK_SIZE)
     chunk_overlap = int(config.CHUNK_OVERLAP)
-    splitter = RecursiveCharacterTextSplitter(
-        chunk_size=chunk_size,
-        chunk_overlap=chunk_overlap
-    )
+    method = config.CHUNK_METHOD.lower().strip() if hasattr(config, "CHUNK_METHOD") else method.lower().strip()
+    
+    if method == "late":
+        #TODO: Need to fix late chunking to get proper meta data
+        return NotImplementedError("Late chunking not implemented yet.")
+    
+    if method == "semantic":
+        try:
+            splitter = RecursiveCharacterTextSplitter(chunk_size=300,
+                                                      chunk_overlap=20)
+            initial_chunks = splitter.split_documents(docs)
+            
+            if not initial_chunks:
+                return docs
+            
+            embeddings = OllamaEmbeddings(
+                base_url=config.OLLAMA_CONFIG["base_url"],
+                model=config.EMBEDDING_MODEL_CONFIG["model"],
+            )
+            
+            chunk_embeddings = embeddings.embed_documents([c.page_content for c in initial_chunks])
+            
+            merged = []
+            current = initial_chunks[0]
+            current_emb = np.array(chunk_embeddings[0])
+            
+            for i in range(1, len(initial_chunks)):
+                next_chunk = initial_chunks[i]
+                next_emb = np.array(chunk_embeddings[i])
+                
+                same_source = current.metadata.get("source") == next_chunk.metadata.get("source")
+                similarity = np.dot(current_emb, next_emb) / (np.linalg.norm(current_emb) * np.linalg.norm(next_emb) + 1e-8)
+                
+                if same_source and similarity > 0.7:
+                    merged_meta = current.metadata.copy()
+                    for key in ["page", "slide"]:
+                        if key in current.metadata or key in next_chunk.metadata:
+                            vals = set()
+                            if key in current.metadata:
+                                vals.update([current.metadata[key]] if not isinstance(current.metadata[key], list) else current.metadata[key])
+                            if key in next_chunk.metadata:
+                                vals.update([next_chunk.metadata[key]] if not isinstance(next_chunk.metadata[key], list) else next_chunk.metadata[key])
+                            merged_meta[key] = ",".join(sorted(list(vals)))
+                    
+                    current = Document(
+                        page_content=current.page_content + "\n" + next_chunk.page_content,
+                        metadata=merged_meta
+                    )
+                    current_emb = (current_emb + next_emb) / 2
+                else:
+                    merged.append(current)
+                    current = next_chunk
+                    current_emb = next_emb
+            
+            merged.append(current)
+            return merged
+            
+        except Exception as e:
+            logger.warning(f"Semantic chunking failed: {e}, falling back to recursive")
+            method = "recursive"
+    
+    splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
     return splitter.split_documents(docs)
-
 
 class DataLoader:
     """

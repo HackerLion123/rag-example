@@ -1,27 +1,27 @@
 {
   "metadata": {
-    "timestamp": "2026-01-06T10:44:24.482989",
-    "total_cases": 9,
+    "timestamp": "2026-01-08T00:56:47.207237",
+    "total_cases": 10,
     "version": "1.0.0"
   },
   "summary": {
     "passed": 7,
-    "failed": 2,
-    "pass_rate": 0.7777777777777778
+    "failed": 3,
+    "pass_rate": 0.7
   },
   "average_scores": {
-    "correctness": 0.7777777777777778,
+    "correctness": 0.7,
     "completeness": 0,
-    "relevance": 0.7777777777777778,
-    "clarity": 0.7777777777777778,
-    "overall": 0.7777777777777778,
+    "relevance": 0.7,
+    "clarity": 0.7,
+    "overall": 0.7,
     "citation_relevance": 1.0,
     "citation_support": 1.0
   },
   "category_breakdown": {
     "general": {
       "passed": 1,
-      "failed": 1
+      "failed": 2
     },
     "summary": {
       "passed": 5,
@@ -43,7 +43,7 @@
         "clarity": 0,
         "overall": 0,
         "reason": "OK",
-        "answer_grade_score": 0.0030876071104558858,
+        "answer_grade_score": 0.0022006878654961958,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -59,7 +59,23 @@
         "clarity": 0,
         "overall": 0,
         "reason": "OK",
-        "answer_grade_score": 0.9999750331019912,
+        "answer_grade_score": 0.5089173304158351,
+        "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+        "citation_relevance": 1,
+        "citation_support": 1
+      }
+    },
+    {
+      "case_id": "case_004",
+      "question": "when should we drill?",
+      "reason": "OK",
+      "scores": {
+        "correctness": 0,
+        "relevance": 0,
+        "clarity": 0,
+        "overall": 0,
+        "reason": "OK",
+        "answer_grade_score": 0.9150401824739223,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -70,7 +86,7 @@
     {
       "case_id": "case_001",
       "question": "what are few drills techiques?",
-      "generated_answer": "Drilling techniques include percussion/rotation and cable tool/percussion drilling. Cable tool/percussion drilling involves hoisting a heavy tool and striking it down on the ground, similar to construction sites.",
+      "generated_answer": "Drilling techniques include percussion/rotation and cable tool/percussion drilling. Cable tool/percussion drilling involves hoisting a heavy tool and striking it down on the ground.",
       "expected_answer": "(1) Cable tool/percussion drilling\u2014repeatedly \n             lifting and dropping a heavy tool to break rock; simple but slow and typically used for shallow wells. \n             (2) Coring\u2014uses rotary-type equipment but is designed to recover core samples for formation evaluation.",
       "citations": [
         {
@@ -80,14 +96,14 @@
           "relevant_text": "Equipment to Drill / Types of Rigs \n\u00fcHistorically\nthe\ndrilling\nprocess\nhas\nevolved\nfrom\nreciprocating type drilling to the rotary drilling. Most of the\nrigs operating today barring a few experimental "
         },
         {
-          "source": "docs/Drilling Engineering Concepts Part 1.pdf",
-          "page": 7,
+          "source": "docs/Drilling Engineering Concepts Part 4.pdf",
+          "page": 16,
           "slide": null,
-          "relevant_text": "Drilling Techniques / Processes (Cable tool) \n\u00fcDrilling can be done via Percussion / rotation and the\nequipment required change based on the drilling technique\nused.\n\u00fcCable tool / percussion drilling "
+          "relevant_text": "Introduction to Directional Drilling \nDrillstring Considerations. The drillstring and bottom-hole assembly play \nan important role in directional drilling. A packed-hole assembly uses a \nsufficient nu"
         },
         {
           "source": "docs/Drilling Engineering Concepts Part 1.pdf",
-          "page": 8,
+          "page": 7,
           "slide": null,
           "relevant_text": "Drilling Techniques / Processes (Cable tool) \n\u00fcDrilling can be done via Percussion / rotation and the\nequipment required change based on the drilling technique\nused.\n\u00fcCable tool / percussion drilling "
         }
@@ -99,7 +115,7 @@
         "clarity": 0,
         "overall": 0,
         "reason": "OK",
-        "answer_grade_score": 0.0030876071104558858,
+        "answer_grade_score": 0.0022006878654961958,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -110,26 +126,26 @@
     {
       "case_id": "case_002",
       "question": "Tell me about llm agents",
-      "generated_answer": "LLM agents utilize an LLM as a \"reasoning engine\" to execute a non-deterministic sequence of actions. They are used to connect LLMs to external data sources and computational tools like search engines, APIs, databases, calculators, and code execution environments.\n\nA key benefit is the ability to handle complex tasks involving multiple steps, such as SQL queries, where a chain of actions (e.g., Natural Language -> SQL Query -> Result -> Natural Language) is needed. Agents can also recover from errors and manage multi-hop tasks.\n\nChallenges include ensuring appropriate tool usage, parsing LLM output for tool invocation, maintaining memory of previous steps, incorporating long observations, and staying focused.",
+      "generated_answer": "Agents use an LLM as the \u201creasoning engine\u201d and operate through a non-deterministic sequence of actions. They are implemented to use tools, but challenges exist in getting them to use tools appropriately, avoiding unnecessary tool usage, parsing LLM output for tool invocation, incorporating memory of previous steps, handling long observations, and maintaining focus. \n\nA typical implementation involves choosing a tool, observing its output, and repeating this process until a stopping condition is met. An example is a chain that translates natural language to an SQL query, then to a result, and finally back to natural language.",
       "expected_answer": null,
       "citations": [
         {
           "source": "docs/2023-llmbc-agents-chase.pptx",
           "page": null,
-          "slide": 3,
-          "relevant_text": "What are agents?\nUse LLM as the \u201creasoning engine\u201d\nNon-deterministic sequence of actions"
-        },
-        {
-          "source": "docs/2023-llmbc-agents-chase.pptx",
-          "page": null,
-          "slide": 4,
-          "relevant_text": "Why use agents?\nConnect LLM to outside sources of data/computation\nSearch\nAPIs\nDatabase\nCalculators\nRun code\nRecover from errors, handle multi-hop tasks\n\nExample: SQL query\nChain: Natural Language -> "
+          "slide": 7,
+          "relevant_text": "ReAct\nChallenges with agents\nMemory\nRecent papers/projects\nWhat are agents?\nUse LLM as the \u201creasoning engine\u201d\nNon-deterministic sequence of actions\nWhy use agents?\nTypical Implementation\nPseudocode:\nC"
         },
         {
           "source": "docs/2023-llmbc-agents-chase.pptx",
           "page": null,
           "slide": 7,
-          "relevant_text": "Challenges with agents\nGetting them to use tools in appropriate scenarios\nGetting them to not use tools when not needed\nParsing LLM Output to tool invocation\nGetting them to \u201cremember\u201d previous steps "
+          "relevant_text": "Getting them to use tools in appropriate scenarios\nGetting them to not use tools when not needed\nParsing LLM Output to tool invocation\nGetting them to \u201cremember\u201d previous steps taken\nGetting them to i"
+        },
+        {
+          "source": "docs/2023-llmbc-agents-chase.pptx",
+          "page": null,
+          "slide": 4,
+          "relevant_text": "Example: SQL query\nChain: Natural Language -> SQl Query -> Result -> Natural Language\nWhat if error in SQL Query?\nWhat if multiple queries need to be made?\nAgents\nFrom ReAct to {insert most recent pap"
         }
       ],
       "confidence": 0.6000000000000001,
@@ -139,7 +155,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9939938113502506,
+        "answer_grade_score": 0.9582343832006248,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -150,20 +166,60 @@
     {
       "case_id": "case_003",
       "question": "What are the key procedures mentioned for drilling?",
-      "generated_answer": "The key procedure mentioned for drilling is cable tool/percussion drilling, which involves hoisting a heavy tool and striking it down on the ground.",
+      "generated_answer": "The tangential method uses inclination and direction angles. Rotary drilling involves draw works to spool drilling line on a hook to pull and push the drill pipe and the Bottom Hole Assembly (BHA) within a Mast.",
       "expected_answer": "Key procedures highlighted include building and executing a drilling fluids (mud) program: gather pore pressure and casing design inputs; identify geological hazards and set mud weights; check hole geometry, hydraulics and ECD constraints and set target rheology/viscosities; define maximum acceptable fluid loss; select mud systems by hole section; define critical fluid properties and monitoring plan; align the mud plan with the overall well plan; determine required materials and logistics; write clear breakover instructions between sections; and prepare contingency plans for expected problems. Operationally, mud engineers maintain and test fluid properties and adjust treatment as drilling conditions change, while mud logging monitors zone progress and reports key drilling indicators.",
       "citations": [
         {
-          "source": "docs/Drilling Engineering Concepts Part 1.pdf",
-          "page": 7,
+          "source": "docs/Drilling Engineering Concepts Part 4.pdf",
+          "page": 11,
           "slide": null,
-          "relevant_text": "Drilling Techniques / Processes (Cable tool) \n\u00fcDrilling can be done via Percussion / rotation and the\nequipment required change based on the drilling technique\nused.\n\u00fcCable tool / percussion drilling "
+          "relevant_text": "Introduction to Directional Drilling \nCalculation Techniques. \nVarious procedures have been developed to estimate the wellbore 'trajectory as it is being drilled. Although \neighteen methods are known "
         },
         {
           "source": "docs/Drilling Engineering Concepts Part 1.pdf",
-          "page": 8,
+          "page": 10,
           "slide": null,
-          "relevant_text": "Drilling Techniques / Processes (Cable tool) \n\u00fcDrilling can be done via Percussion / rotation and the\nequipment required change based on the drilling technique\nused.\n\u00fcCable tool / percussion drilling "
+          "relevant_text": "Drilling Techniques / Processes (Rotary) \n\u00fcRotary drilling is most effective method and used very widely.\n\u00fcBasic equipment have evolved over the years and the optimization is\nongoing.\n\u00fcThe Rotary dril"
+        },
+        {
+          "source": "docs/Drilling Engineering Concepts Part 3.pdf",
+          "page": 19,
+          "slide": null,
+          "relevant_text": "Drilling Fluids \nPlanning a mud program is an essential step in the development of a workable overall \nwell plan. Key steps, listed below, are followed on each well.\n\u2022\nObtain pore pressures and casing"
+        }
+      ],
+      "confidence": 0.6000000000000001,
+      "scores": {
+        "correctness": 0,
+        "relevance": 0,
+        "clarity": 0,
+        "overall": 0,
+        "reason": "OK",
+        "answer_grade_score": 0.5089173304158351,
+        "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+        "citation_relevance": 1,
+        "citation_support": 1
+      },
+      "passed": false,
+      "failure_reason": "OK"
+    },
+    {
+      "case_id": "case_004",
+      "question": "when should we drill?",
+      "generated_answer": "The G&G folk help to answer when to drill. Drilling a well at a location is the only process to \u201cConfirm\u201d availability of commercial quantities of producible Hydrocarbon.",
+      "expected_answer": null,
+      "citations": [
+        {
+          "source": "docs/Drilling Engineering Concepts Part 1.pdf",
+          "page": 11,
+          "slide": null,
+          "relevant_text": "\u00fcThe G&G folk help to answers when where and what to drill.\n\u00fcHow to Drill caries in techniques processes\n\u00fcLocations can be simple or Complex, we have the solutions !!"
+        },
+        {
+          "source": "docs/Drilling Engineering Concepts Part 1.pdf",
+          "page": 4,
+          "slide": null,
+          "relevant_text": "Why Drill ?  (Not the Only W ?? )  \n\u00fcDrilling here refers to making borehole (well)\nin the earth\u2019s upper crust\n(location) aimed to recover oil and / or gas (hydrocarbon) in commercial\nquantities.\n\u00fcDri"
         },
         {
           "source": "docs/Drilling Engineering Concepts Part 2.pdf",
@@ -179,53 +235,13 @@
         "clarity": 0,
         "overall": 0,
         "reason": "OK",
-        "answer_grade_score": 0.9999750331019912,
+        "answer_grade_score": 0.9150401824739223,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
       },
       "passed": false,
       "failure_reason": "OK"
-    },
-    {
-      "case_id": "case_004",
-      "question": "when should we drill?",
-      "generated_answer": "The G&G folk help to answer when, where, and what to drill. They review events over the geological time scale and current history, looking for signs of earth crust movement, analyzing causes such as change in thrust/strike/slip, and determining the location to drill.",
-      "expected_answer": null,
-      "citations": [
-        {
-          "source": "docs/Drilling Engineering Concepts Part 1.pdf",
-          "page": 11,
-          "slide": null,
-          "relevant_text": "\u00fcThe G&G folk help to answers when where and what to drill.\n\u00fcHow to Drill caries in techniques processes\n\u00fcLocations can be simple or Complex, we have the solutions !!"
-        },
-        {
-          "source": "docs/Drilling Engineering Concepts Part 2.pdf",
-          "page": 32,
-          "slide": null,
-          "relevant_text": "ought to be evaluated.  Following basic information is required : \n\u2022The purpose of the well (exploratory or development drilling) \n\u2022Geological cross-sections that should consist of type of formations,"
-        },
-        {
-          "source": "docs/Drilling Engineering Concepts Part 1.pdf",
-          "page": 6,
-          "slide": null,
-          "relevant_text": "\u2026When, What  and Where To Drill\n\u00fcG&G folks also review the events over the Geological time\nscale / in current history and look for the signs of earth crust\nmovement , analyse the causes such as change"
-        }
-      ],
-      "confidence": 0.6000000000000001,
-      "scores": {
-        "correctness": 1,
-        "relevance": 1,
-        "clarity": 1,
-        "overall": 1,
-        "reason": "OK",
-        "answer_grade_score": 0.8588918437393207,
-        "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
-        "citation_relevance": 1,
-        "citation_support": 1
-      },
-      "passed": true,
-      "failure_reason": null
     },
     {
       "case_id": "case_005",
@@ -390,7 +406,7 @@
     {
       "case_id": "case_009",
       "question": "explain about drilling fluid additives",
-      "generated_answer": "Drilling fluid additives are used to manage viscosity and meet drilling requirements. Viscosity reducers address high viscosity caused by colloids, drill solids, or contaminants, which can lead to increased equivalent circulating density and high pump pressures. Chemical breakers, like mild acids (e.g., Clorox\u00ae), can be used to thin polymer-generated viscosity. Pilot testing is recommended before using chemical breakers due to cost, and waiting 12-18 hours after addition is sometimes advisable. A viscometer measures plastic viscosity (PV) and yield point (YP) to monitor viscosity.",
+      "generated_answer": "Drilling fluid additives are used to manage viscosity and meet drilling requirements. Viscosity reducers address high viscosity caused by colloids, drill solids, or contaminants, which can lead to increased equivalent circulating density and high pump pressures. Chemical breakers, like mild acids (e.g., Clorox\u00ae), can be used to reduce viscosity generated by polymers, but pilot testing is recommended due to cost. It is advisable to wait 12-18 hours after adding chemical breakers before continuing operations. A viscometer measures plastic viscosity (PV) and yield point (YP) to monitor viscosity.",
       "expected_answer": null,
       "citations": [
         {
@@ -403,7 +419,7 @@
           "source": "docs/Drilling Engineering Concepts Part 3.pdf",
           "page": 26,
           "slide": null,
-          "relevant_text": "Drilling Fluid \u2013 Additives\nTo meet drilling requirements the mud uses several additives. Considering the requirement of carrying capacity \nviscosity must be managed and monitored. A viscometer is used"
+          "relevant_text": "Drilling Fluids\nDrilling Fluid \u2013 Additives\nTo meet drilling requirements the mud uses several additives. Considering the requirement of carrying capacity \nviscosity must be managed and monitored. A vi"
         },
         {
           "source": "docs/Drilling Engineering Concepts Part 3.pdf",
@@ -419,7 +435,47 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9991226170282822,
+        "answer_grade_score": 0.9989954530401364,
+        "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+        "citation_relevance": 1,
+        "citation_support": 1
+      },
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "case_id": "case_010",
+      "question": "challenges with llm agents",
+      "generated_answer": "Challenges with LLM agents include:\n\n*   Getting them to use tools in appropriate scenarios.\n*   Getting them to not use tools when not needed.\n*   Parsing LLM output to tool invocation.\n*   Getting them to \u201cremember\u201d previous steps taken.\n*   Getting them to incorporate long observations.\n*   Getting them to stay focused.",
+      "expected_answer": null,
+      "citations": [
+        {
+          "source": "docs/2023-llmbc-agents-chase.pptx",
+          "page": null,
+          "slide": 7,
+          "relevant_text": "Stopping condition:\nLLM determined\nHardcoded rules\nReAct\n\nChallenges with agents"
+        },
+        {
+          "source": "docs/2023-llmbc-agents-chase.pptx",
+          "page": null,
+          "slide": 7,
+          "relevant_text": "ReAct\nChallenges with agents\nMemory\nRecent papers/projects\nWhat are agents?\nUse LLM as the \u201creasoning engine\u201d\nNon-deterministic sequence of actions\nWhy use agents?\nTypical Implementation\nPseudocode:\nC"
+        },
+        {
+          "source": "docs/2023-llmbc-agents-chase.pptx",
+          "page": null,
+          "slide": 7,
+          "relevant_text": "Getting them to use tools in appropriate scenarios\nGetting them to not use tools when not needed\nParsing LLM Output to tool invocation\nGetting them to \u201cremember\u201d previous steps taken\nGetting them to i"
+        }
+      ],
+      "confidence": 0.6000000000000001,
+      "scores": {
+        "correctness": 1,
+        "relevance": 1,
+        "clarity": 1,
+        "overall": 1,
+        "reason": "OK",
+        "answer_grade_score": 0.9999790555083476,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1

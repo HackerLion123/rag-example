@@ -26,7 +26,8 @@ EVAL_CASES = [
     EvalCase(id="case_006", question="give a summary on drilling fluids", category="summary"),
     EvalCase(id="case_007", question="explain about bottom hole assembly?", category="summary"),
     EvalCase(id="case_008", question="explain about Cementing?", category="summary"),
-    EvalCase(id="case_009", question="explain about drilling fluid additives", category="summary")
+    EvalCase(id="case_009", question="explain about drilling fluid additives", category="summary"),
+    EvalCase(id="case_010", question="challenges with llm agents", category="general")
 ]
 
 

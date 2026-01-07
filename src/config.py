@@ -22,6 +22,7 @@ RAW_DATA_PATH = "docs/"
 
 CHUNK_SIZE = int(os.getenv("CHUNK_SIZE", "420"))
 CHUNK_OVERLAP = int(os.getenv("CHUNK_OVERLAP", "100"))
+CHUNK_METHOD = os.getenv("CHUNK_METHOD", "recursive")
 
 
 CHUNK_TABLE_SIZE = int(os.getenv("CHUNK_TABLE_SIZE", "2000"))
