@@ -65,7 +65,6 @@ rag-example/
 │   ├── processed/        # Processed documents
 │   │   └── index.faiss   # FAISS vector index
 │   └── cache/            # LLM cache
-├── main.py               # CLI entry point
 ├── requirements.txt      # Python dependencies
 ├── pyproject.toml        # UV project configuration
 └── docker-compose.yml    # Docker deployment
@@ -75,7 +74,7 @@ rag-example/
 
 This RAG system performs the following workflow:
 
-1. **Document Ingestion**: Loads documents (PDF, DOCX, PPTX) using [docling](https://github.com/DS4SD/docling) and generates embeddings via sentence-transformers
+1. **Document Ingestion**: Loads documents (PDF, DOCX, PPTX) and generates embeddings via sentence-transformers
 2. **Retrieval**: Uses FAISS vector similarity search to find relevant documents for a query
 3. **Reranking**: Improves relevance by reranking retrieved documents (configured via `RERANK_TOP_K` in [config.py](src/config.py))
 4. **Generation**: Generates answers using ChatOllama with context from reranked documents
