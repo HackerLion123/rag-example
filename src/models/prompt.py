@@ -4,8 +4,8 @@ from langchain_core.prompts import PromptTemplate
 def create_ragqa_prompt():
     prompt = """You are an expect in answering questions based on provided context.
     Use the following context to answer the question.
-    If you don't know the answer, say that you don't know.
     Make sure your answer is relevant to the question and is based only on the provided context.
+    If you don't know the answer, say that you don't know.
     Keep the answer concise with not more than 350 words.
     Directly answer without adding extra text. 
     

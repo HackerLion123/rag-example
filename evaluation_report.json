@@ -1,94 +1,51 @@
 {
   "metadata": {
-    "timestamp": "2026-01-08T00:56:47.207237",
-    "total_cases": 10,
+    "timestamp": "2026-01-08T06:55:51.902027",
+    "total_cases": 12,
     "version": "1.0.0"
   },
   "summary": {
-    "passed": 7,
-    "failed": 3,
-    "pass_rate": 0.7
+    "passed": 12,
+    "failed": 0,
+    "pass_rate": 1.0
   },
   "average_scores": {
-    "correctness": 0.7,
+    "correctness": 1.0,
     "completeness": 0,
-    "relevance": 0.7,
-    "clarity": 0.7,
-    "overall": 0.7,
+    "relevance": 1.0,
+    "clarity": 1.0,
+    "overall": 1.0,
     "citation_relevance": 1.0,
     "citation_support": 1.0
   },
   "category_breakdown": {
     "general": {
-      "passed": 1,
-      "failed": 2
+      "passed": 4,
+      "failed": 0
     },
     "summary": {
       "passed": 5,
-      "failed": 1
+      "failed": 0
     },
-    "training": {
-      "passed": 1,
+    "drilling fluid": {
+      "passed": 3,
       "failed": 0
     }
   },
-  "failure_analysis": [
-    {
-      "case_id": "case_001",
-      "question": "what are few drills techiques?",
-      "reason": "OK",
-      "scores": {
-        "correctness": 0,
-        "relevance": 0,
-        "clarity": 0,
-        "overall": 0,
-        "reason": "OK",
-        "answer_grade_score": 0.0022006878654961958,
-        "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
-        "citation_relevance": 1,
-        "citation_support": 1
-      }
-    },
-    {
-      "case_id": "case_003",
-      "question": "What are the key procedures mentioned for drilling?",
-      "reason": "OK",
-      "scores": {
-        "correctness": 0,
-        "relevance": 0,
-        "clarity": 0,
-        "overall": 0,
-        "reason": "OK",
-        "answer_grade_score": 0.5089173304158351,
-        "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
-        "citation_relevance": 1,
-        "citation_support": 1
-      }
-    },
-    {
-      "case_id": "case_004",
-      "question": "when should we drill?",
-      "reason": "OK",
-      "scores": {
-        "correctness": 0,
-        "relevance": 0,
-        "clarity": 0,
-        "overall": 0,
-        "reason": "OK",
-        "answer_grade_score": 0.9150401824739223,
-        "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
-        "citation_relevance": 1,
-        "citation_support": 1
-      }
-    }
-  ],
+  "failure_analysis": [],
   "detailed_results": [
     {
       "case_id": "case_001",
-      "question": "what are few drills techiques?",
-      "generated_answer": "Drilling techniques include percussion/rotation and cable tool/percussion drilling. Cable tool/percussion drilling involves hoisting a heavy tool and striking it down on the ground.",
-      "expected_answer": "(1) Cable tool/percussion drilling\u2014repeatedly \n             lifting and dropping a heavy tool to break rock; simple but slow and typically used for shallow wells. \n             (2) Coring\u2014uses rotary-type equipment but is designed to recover core samples for formation evaluation.",
+      "question": "what are the types of rigs?",
+      "generated_answer": "The types of rigs are:\n\n*   Floating rigs (Fixed or Free floating, such as Drill ships)\n*   Self-Supported rigs (Jack up or Barge/Pontoon type)\n*   Rotary drilling rigs (most rigs today)\n*   Workover rigs (Jackknife Rig)",
+      "expected_answer": null,
       "citations": [
+        {
+          "source": "docs/Drilling Engineering Concepts Part 1.pdf",
+          "page": 14,
+          "slide": null,
+          "relevant_text": "Type of Rigs \u2013 Marine Rigs\n\u2022\nMarine Rigs are for applications in the Sea / Lake.  \nThese can be bifurcated in Floating Vs Bottom \nSupported. \n\u2022\nFloating rigs can further be classified as Fixed or Free"
+        },
         {
           "source": "docs/Drilling Engineering Concepts Part 1.pdf",
           "page": 12,
@@ -96,50 +53,44 @@
           "relevant_text": "Equipment to Drill / Types of Rigs \n\u00fcHistorically\nthe\ndrilling\nprocess\nhas\nevolved\nfrom\nreciprocating type drilling to the rotary drilling. Most of the\nrigs operating today barring a few experimental "
         },
         {
-          "source": "docs/Drilling Engineering Concepts Part 4.pdf",
-          "page": 16,
-          "slide": null,
-          "relevant_text": "Introduction to Directional Drilling \nDrillstring Considerations. The drillstring and bottom-hole assembly play \nan important role in directional drilling. A packed-hole assembly uses a \nsufficient nu"
-        },
-        {
           "source": "docs/Drilling Engineering Concepts Part 1.pdf",
-          "page": 7,
+          "page": 13,
           "slide": null,
-          "relevant_text": "Drilling Techniques / Processes (Cable tool) \n\u00fcDrilling can be done via Percussion / rotation and the\nequipment required change based on the drilling technique\nused.\n\u00fcCable tool / percussion drilling "
+          "relevant_text": "Equipment To Drill  (Type of Rigs) \nNote : Jackknife Rig refers to Workover Rig \nwhich can raise / lower the Mast quickly"
         }
       ],
       "confidence": 0.6000000000000001,
       "scores": {
-        "correctness": 0,
-        "relevance": 0,
-        "clarity": 0,
-        "overall": 0,
+        "correctness": 1,
+        "relevance": 1,
+        "clarity": 1,
+        "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.0022006878654961958,
+        "answer_grade_score": 0.999933224727904,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
       },
-      "passed": false,
-      "failure_reason": "OK"
+      "passed": true,
+      "failure_reason": null
     },
     {
       "case_id": "case_002",
       "question": "Tell me about llm agents",
-      "generated_answer": "Agents use an LLM as the \u201creasoning engine\u201d and operate through a non-deterministic sequence of actions. They are implemented to use tools, but challenges exist in getting them to use tools appropriately, avoiding unnecessary tool usage, parsing LLM output for tool invocation, incorporating memory of previous steps, handling long observations, and maintaining focus. \n\nA typical implementation involves choosing a tool, observing its output, and repeating this process until a stopping condition is met. An example is a chain that translates natural language to an SQL query, then to a result, and finally back to natural language.",
+      "generated_answer": "Agents use LLMs as the \"reasoning engine\" and operate through a non-deterministic sequence of actions. They are implemented to use LLMs as the reasoning engine and execute a non-deterministic sequence of actions. A typical implementation involves choosing a tool to use, observing the output, and repeating until a stopping condition is met. An example is a chain that translates natural language to an SQL query, then to a result, and back to natural language.",
       "expected_answer": null,
       "citations": [
         {
           "source": "docs/2023-llmbc-agents-chase.pptx",
           "page": null,
-          "slide": 7,
-          "relevant_text": "ReAct\nChallenges with agents\nMemory\nRecent papers/projects\nWhat are agents?\nUse LLM as the \u201creasoning engine\u201d\nNon-deterministic sequence of actions\nWhy use agents?\nTypical Implementation\nPseudocode:\nC"
+          "slide": 4,
+          "relevant_text": "What are agents?\nUse LLM as the \u201creasoning engine\u201d\nNon-deterministic sequence of actions\nWhy use agents?"
         },
         {
           "source": "docs/2023-llmbc-agents-chase.pptx",
           "page": null,
           "slide": 7,
-          "relevant_text": "Getting them to use tools in appropriate scenarios\nGetting them to not use tools when not needed\nParsing LLM Output to tool invocation\nGetting them to \u201cremember\u201d previous steps taken\nGetting them to i"
+          "relevant_text": "Agenda\nWhat are agents?\nWhy use agents?\nTypical implementation\nReAct\nChallenges with agents\nMemory\nRecent papers/projects\nWhat are agents?\nUse LLM as the \u201creasoning engine\u201d\nNon-deterministic sequence "
         },
         {
           "source": "docs/2023-llmbc-agents-chase.pptx",
@@ -155,7 +106,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9582343832006248,
+        "answer_grade_score": 0.9588879402135768,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -165,107 +116,27 @@
     },
     {
       "case_id": "case_003",
-      "question": "What are the key procedures mentioned for drilling?",
-      "generated_answer": "The tangential method uses inclination and direction angles. Rotary drilling involves draw works to spool drilling line on a hook to pull and push the drill pipe and the Bottom Hole Assembly (BHA) within a Mast.",
-      "expected_answer": "Key procedures highlighted include building and executing a drilling fluids (mud) program: gather pore pressure and casing design inputs; identify geological hazards and set mud weights; check hole geometry, hydraulics and ECD constraints and set target rheology/viscosities; define maximum acceptable fluid loss; select mud systems by hole section; define critical fluid properties and monitoring plan; align the mud plan with the overall well plan; determine required materials and logistics; write clear breakover instructions between sections; and prepare contingency plans for expected problems. Operationally, mud engineers maintain and test fluid properties and adjust treatment as drilling conditions change, while mud logging monitors zone progress and reports key drilling indicators.",
-      "citations": [
-        {
-          "source": "docs/Drilling Engineering Concepts Part 4.pdf",
-          "page": 11,
-          "slide": null,
-          "relevant_text": "Introduction to Directional Drilling \nCalculation Techniques. \nVarious procedures have been developed to estimate the wellbore 'trajectory as it is being drilled. Although \neighteen methods are known "
-        },
-        {
-          "source": "docs/Drilling Engineering Concepts Part 1.pdf",
-          "page": 10,
-          "slide": null,
-          "relevant_text": "Drilling Techniques / Processes (Rotary) \n\u00fcRotary drilling is most effective method and used very widely.\n\u00fcBasic equipment have evolved over the years and the optimization is\nongoing.\n\u00fcThe Rotary dril"
-        },
-        {
-          "source": "docs/Drilling Engineering Concepts Part 3.pdf",
-          "page": 19,
-          "slide": null,
-          "relevant_text": "Drilling Fluids \nPlanning a mud program is an essential step in the development of a workable overall \nwell plan. Key steps, listed below, are followed on each well.\n\u2022\nObtain pore pressures and casing"
-        }
-      ],
-      "confidence": 0.6000000000000001,
-      "scores": {
-        "correctness": 0,
-        "relevance": 0,
-        "clarity": 0,
-        "overall": 0,
-        "reason": "OK",
-        "answer_grade_score": 0.5089173304158351,
-        "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
-        "citation_relevance": 1,
-        "citation_support": 1
-      },
-      "passed": false,
-      "failure_reason": "OK"
-    },
-    {
-      "case_id": "case_004",
-      "question": "when should we drill?",
-      "generated_answer": "The G&G folk help to answer when to drill. Drilling a well at a location is the only process to \u201cConfirm\u201d availability of commercial quantities of producible Hydrocarbon.",
+      "question": "what is use of reamer?",
+      "generated_answer": "Roller reamers are used to replace near bit and string stabilisers in bottom hole assemblies where high torque and swelling or abrasive formations are encountered. A six point roller reamer may be used in place of the near bit stabiliser for severely abrasive formations or significant high torque. A hole reamer placed in the drillstring opposite the dogleg is used for harder formations.",
       "expected_answer": null,
       "citations": [
         {
-          "source": "docs/Drilling Engineering Concepts Part 1.pdf",
-          "page": 11,
+          "source": "docs/Drilling Engineering Concepts Part 2.pdf",
+          "page": 25,
           "slide": null,
-          "relevant_text": "\u00fcThe G&G folk help to answers when where and what to drill.\n\u00fcHow to Drill caries in techniques processes\n\u00fcLocations can be simple or Complex, we have the solutions !!"
-        },
-        {
-          "source": "docs/Drilling Engineering Concepts Part 1.pdf",
-          "page": 4,
-          "slide": null,
-          "relevant_text": "Why Drill ?  (Not the Only W ?? )  \n\u00fcDrilling here refers to making borehole (well)\nin the earth\u2019s upper crust\n(location) aimed to recover oil and / or gas (hydrocarbon) in commercial\nquantities.\n\u00fcDri"
+          "relevant_text": "Bottom Hole Assembly ( REAMER )  \nRoller reamers are used to replace near bit and string \nstabilisers in bottom hole assemblies where high torque and \nswelling or abrasive formations are encountered. "
         },
         {
           "source": "docs/Drilling Engineering Concepts Part 2.pdf",
-          "page": 32,
+          "page": 25,
           "slide": null,
-          "relevant_text": "ought to be evaluated.  Following basic information is required : \n\u2022The purpose of the well (exploratory or development drilling) \n\u2022Geological cross-sections that should consist of type of formations,"
-        }
-      ],
-      "confidence": 0.6000000000000001,
-      "scores": {
-        "correctness": 0,
-        "relevance": 0,
-        "clarity": 0,
-        "overall": 0,
-        "reason": "OK",
-        "answer_grade_score": 0.9150401824739223,
-        "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
-        "citation_relevance": 1,
-        "citation_support": 1
-      },
-      "passed": false,
-      "failure_reason": "OK"
-    },
-    {
-      "case_id": "case_005",
-      "question": "What training materials are available?",
-      "generated_answer": "The training materials include understanding of clays, polymers, weight materials, and additives to control various properties. These include sodium and calcium montmorillonite, attapulgite, CMC (carboxymethylcellulose), HEC (hydroxyethylcellulose), barite, galena, iron oxides, and hematite.",
-      "expected_answer": null,
-      "citations": [
-        {
-          "source": "docs/Drilling Engineering Concepts Part 3.pdf",
-          "page": 30,
-          "slide": null,
-          "relevant_text": "pressure to be sufficiently reduced to allow a kick to occur. LCM \nproducts that have successfully been applied are items such as \nground walnut hulls, cottonseed hulls, sawdust, cellophane flakes, \na"
+          "relevant_text": "For severely abrasive formations or wear significant high torque is encountered a six point roller reamer may be \nused in place of the near bit stabiliser. \nSealed bearing roller reamers should always"
         },
         {
           "source": "docs/Drilling Engineering Concepts Part 4.pdf",
-          "page": 14,
+          "page": 13,
           "slide": null,
-          "relevant_text": "Introduction to Directional Drilling \nDirectional drilling equipment and techniques have become an involved discipline. In addition to a variety of \navailable equipment, other variables such as bits, "
-        },
-        {
-          "source": "docs/Drilling Engineering Concepts Part 3.pdf",
-          "page": 21,
-          "slide": null,
-          "relevant_text": "as clays, polymers, weight materials, and additives to control various \nproperties.\nThe clays include sodium and calcium montmorillonite, attapulgite, and \nsubgroups of montmorillonite. \nPolymers cove"
+          "relevant_text": "usually wash out, which alleviates the dogleg. \nA hole reamer placed in the drillstring opposite the dogleg is used \nfor harder formations. This string reamer is repositioned in the \ndrillstring as th"
         }
       ],
       "confidence": 0.6000000000000001,
@@ -275,7 +146,87 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9993286239654308,
+        "answer_grade_score": 0.9963615836265436,
+        "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+        "citation_relevance": 1,
+        "citation_support": 1
+      },
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "case_id": "case_004",
+      "question": "when should we drill?",
+      "generated_answer": "G&G professionals review geology, timescale, and perform studies to determine when to drill. They analyze events over the geological timescale and current history, looking for signs of earth crust movement, such as changes in thrust/strike/slip, to determine the location to drill.",
+      "expected_answer": null,
+      "citations": [
+        {
+          "source": "docs/Drilling Engineering Concepts Part 1.pdf",
+          "page": 5,
+          "slide": null,
+          "relevant_text": "G&G, review geology, timescale, and perform studies to determine when,\nwhere and what to drill.\n\u00fcThey primarily look for the structural traps where the oil and gas can\naccumulate."
+        },
+        {
+          "source": "docs/Drilling Engineering Concepts Part 1.pdf",
+          "page": 11,
+          "slide": null,
+          "relevant_text": "\u00fcBesides Why, there are more W questions about drilling\n\u00fcThe G&G folk help to answers when where and what to drill.\n\u00fcHow to Drill caries in techniques processes\n\u00fcLocations can be simple or Complex, we"
+        },
+        {
+          "source": "docs/Drilling Engineering Concepts Part 1.pdf",
+          "page": 6,
+          "slide": null,
+          "relevant_text": "\u2026When, What  and Where To Drill\n\u00fcG&G folks also review the events over the Geological time\nscale / in current history and look for the signs of earth crust\nmovement , analyse the causes such as change"
+        }
+      ],
+      "confidence": 0.6000000000000001,
+      "scores": {
+        "correctness": 1,
+        "relevance": 1,
+        "clarity": 1,
+        "overall": 1,
+        "reason": "OK",
+        "answer_grade_score": 0.6775773129854438,
+        "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+        "citation_relevance": 1,
+        "citation_support": 1
+      },
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "case_id": "case_005",
+      "question": "Talk about role of drilling liquids in hole stabilization",
+      "generated_answer": "Drilling liquids play a crucial role in hole stabilization. They prevent borehole failure due to an unbalance of in situ stresses. Drilling liquids also prevent flow of formation fluids into the wellbore and maintain hole integrity. An inhibited water-based mud is often used to minimize hole sloughing problems by retarding the rate at which formation clays hydrate, which reduces the structural stability of the borehole.",
+      "expected_answer": null,
+      "citations": [
+        {
+          "source": "docs/Drilling Engineering Concepts Part 3.pdf",
+          "page": 18,
+          "slide": null,
+          "relevant_text": "Drilling Fluids \nMud serve many purposes during drilling. \nThe major functions include the following: \n\u2022\nCool and lubricate the bit and drill string \n\u2022\nClean the hole bottom  and carry cuttings\n\u2022\nCont"
+        },
+        {
+          "source": "docs/Drilling Fluids Notes.pdf",
+          "page": 2,
+          "slide": null,
+          "relevant_text": "Drilling Fluid\nli.ge gas mixture tht\nr\ncirculated during\nd F\nrotary drilling process to\nremove drill\n0\nmain function\nHole stabilization\ncuttings\nchemically\nPrevent flow of formation fluid\nf f\n71 mecha"
+        },
+        {
+          "source": "docs/Drilling Engineering Concepts Part 3.pdf",
+          "page": 22,
+          "slide": null,
+          "relevant_text": "Drilling Fluids \nInhibited Water-Based Mud :  An inhibited water-based mud is often used to minimize hole sloughing problems. \n\"Inhibition\" refers to retarding the rate at which formation clays hydrat"
+        }
+      ],
+      "confidence": 0.6000000000000001,
+      "scores": {
+        "correctness": 1,
+        "relevance": 1,
+        "clarity": 1,
+        "overall": 1,
+        "reason": "OK",
+        "answer_grade_score": 0.9997995967221149,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -286,7 +237,7 @@
     {
       "case_id": "case_006",
       "question": "give a summary on drilling fluids",
-      "generated_answer": "Drilling fluids, often called \"mud,\" are liquids or gases used in drilling operations, first conceived by Fauvelle in 1845. A detailed mud plan is essential for drilling. The most common type is Water-Based Mud (WBM), which uses water as the base fluid, though it can contain oil or air. Fresh water is often used as a base fluid when adding chemicals to control properties. Viscosity reducers are additives used to address issues caused by high viscosity, such as excessive yield points and gel strengths, which can lead to problems like lost circulation and high pump pressures.",
+      "generated_answer": "Drilling fluids, often called \"mud,\" are liquids or gases used in drilling operations to achieve specific purposes. The concept was first conceived by Fauvelle in 1845. The most frequently used drilling fluid is Water-Based Mud (WBM), which uses water as the continuous phase, though it can contain oil or air as a discontinuous phase. To meet drilling requirements, additives are used, and viscosity is managed and monitored using a viscometer. The viscometer measures plastic viscosity (PV) and yield point (YP) in centipoises.",
       "expected_answer": null,
       "citations": [
         {
@@ -303,9 +254,9 @@
         },
         {
           "source": "docs/Drilling Engineering Concepts Part 3.pdf",
-          "page": 27,
+          "page": 26,
           "slide": null,
-          "relevant_text": "Drilling Fluids - Additives \nViscosity Reducers. A high viscosity caused by excessive colloids, undesirable drill solids, or contaminants can \ncause several drilling problems. Associated with high vis"
+          "relevant_text": "Drilling Fluids\nDrilling Fluid \u2013 Additives\nTo meet drilling requirements the mud uses several additives. Considering the requirement of carrying capacity \nviscosity must be managed and monitored. A vi"
         }
       ],
       "confidence": 0.6000000000000001,
@@ -315,7 +266,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9873093315416726,
+        "answer_grade_score": 0.9910646973643029,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -326,7 +277,7 @@
     {
       "case_id": "case_007",
       "question": "explain about bottom hole assembly?",
-      "generated_answer": "A Bottom Hole Assembly (BHA) is a crucial component of the drillstring, comprising drillcollars, Heavy Weight Drill Pipe (HWDP), stabilizers, and other accessories. It's essential for controlling the direction of wells, whether vertical or deviated, to meet target objectives.\n\nHWDP, used between standard drillpipe and drillcollars, maintains a similar outer diameter but has a smaller inner diameter and an extra tool joint, providing a smooth transition in drillstring components.\n\nStabilizers are tools positioned above the drill bit and within the BHA to manage hole deviation, stiffness, and prevent differential sticking by centralizing the BHA. They improve bit performance. Stabilizers are either rotating or non-rotating.",
+      "generated_answer": "A Bottom Hole Assembly (BHA) consists of drillcollars, Heavy Weight Drill Pipe (HWDP), stabilizers, and other accessories that form the drillstring. \n\nHWDP has the same outer diameter as standard drillpipe but with a reduced inner diameter, featuring an extra tool joint to provide a smooth transition between drillstring components.\n\nStabilizers are tools placed above the drill bit and along the BHA to control hole deviation, prevent differential sticking, and centralize the BHA, providing extra stiffness and improving bit performance.",
       "expected_answer": null,
       "citations": [
         {
@@ -355,7 +306,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9995664170838227,
+        "answer_grade_score": 0.9991858152809704,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -366,7 +317,7 @@
     {
       "case_id": "case_008",
       "question": "explain about Cementing?",
-      "generated_answer": "Cementing is a crucial process in a well's life cycle, serving as a primary well barrier element. It involves placing cement behind the casing, typically using a single- or multi-stage technique. The process helps resolve hole problems, secures the casing, and isolates production zones. \n\nAPI cements, also known as Portland cements or hydraulic cements, set up in water. They are manufactured by heating limestone, clay, shale, and slag at high temperatures, then grinding the resulting clinker with gypsum. Additional components like sand, bauxite, and iron oxide may be added to adjust the chemical composition. Cement slurry is placed just before the high-pressure zone and to protect the annular space between the casing and borehole. For well abandonment, cement plugs are an acceptable method.",
+      "generated_answer": "Cementing is a technique used to place cement behind casing in a well, either in a single- or multi-stage process. The cement acts as a primary well barrier element, resolving hole problems, securing casing, and isolating production zones. \n\nIn a single-stage technique, cement slurry is pumped down the casing and up the annulus, with back-pressure valves preventing U-tubing. Casing depths are altered to place the cement slurry just before high-pressure zones.\n\nAPI cements, also known as hydraulic cements, set up in water. They are manufactured by heating limestone, clay, shale, and slag in a kiln, cooling the resulting clinker, and grinding it with gypsum to form Portland cement.",
       "expected_answer": null,
       "citations": [
         {
@@ -395,7 +346,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9948089083332081,
+        "answer_grade_score": 0.9959849577033653,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -406,7 +357,7 @@
     {
       "case_id": "case_009",
       "question": "explain about drilling fluid additives",
-      "generated_answer": "Drilling fluid additives are used to manage viscosity and meet drilling requirements. Viscosity reducers address high viscosity caused by colloids, drill solids, or contaminants, which can lead to increased equivalent circulating density and high pump pressures. Chemical breakers, like mild acids (e.g., Clorox\u00ae), can be used to reduce viscosity generated by polymers, but pilot testing is recommended due to cost. It is advisable to wait 12-18 hours after adding chemical breakers before continuing operations. A viscometer measures plastic viscosity (PV) and yield point (YP) to monitor viscosity.",
+      "generated_answer": "Drilling fluid additives are used to meet drilling requirements and manage viscosity. Viscosity reducers address high viscosity issues caused by colloids, drill solids, or contaminants, which can lead to increased equivalent circulating density and high pump pressures. Chemical breakers, like mild acids such as Clorox\u00ae, can be used to reduce viscosity generated by polymers. However, due to the cost of polymer fluids, pilot testing in a laboratory is recommended before using chemical breakers. A viscometer measures viscosity by assessing plastic viscosity (PV) and yield point (YP) in centipoises.",
       "expected_answer": null,
       "citations": [
         {
@@ -435,7 +386,7 @@
         "clarity": 1,
         "overall": 1,
         "reason": "OK",
-        "answer_grade_score": 0.9989954530401364,
+        "answer_grade_score": 0.9991657869886073,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
@@ -446,7 +397,7 @@
     {
       "case_id": "case_010",
       "question": "challenges with llm agents",
-      "generated_answer": "Challenges with LLM agents include:\n\n*   Getting them to use tools in appropriate scenarios.\n*   Getting them to not use tools when not needed.\n*   Parsing LLM output to tool invocation.\n*   Getting them to \u201cremember\u201d previous steps taken.\n*   Getting them to incorporate long observations.\n*   Getting them to stay focused.",
+      "generated_answer": "Challenges with LLM agents include:\n\n*   Getting them to use tools in appropriate scenarios.\n*   Getting them to not use tools when not needed.\n*   Parsing LLM Output to tool invocation.\n*   Getting them to \u201cremember\u201d previous steps taken.\n*   Getting them to incorporate long observations.\n*   Getting them to stay focused.",
       "expected_answer": null,
       "citations": [
         {
@@ -459,7 +410,7 @@
           "source": "docs/2023-llmbc-agents-chase.pptx",
           "page": null,
           "slide": 7,
-          "relevant_text": "ReAct\nChallenges with agents\nMemory\nRecent papers/projects\nWhat are agents?\nUse LLM as the \u201creasoning engine\u201d\nNon-deterministic sequence of actions\nWhy use agents?\nTypical Implementation\nPseudocode:\nC"
+          "relevant_text": "Agenda\nWhat are agents?\nWhy use agents?\nTypical implementation\nReAct\nChallenges with agents\nMemory\nRecent papers/projects\nWhat are agents?\nUse LLM as the \u201creasoning engine\u201d\nNon-deterministic sequence "
         },
         {
           "source": "docs/2023-llmbc-agents-chase.pptx",
@@ -476,6 +427,86 @@
         "overall": 1,
         "reason": "OK",
         "answer_grade_score": 0.9999790555083476,
+        "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+        "citation_relevance": 1,
+        "citation_support": 1
+      },
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "case_id": "case_011",
+      "question": "explain about logging in drills",
+      "generated_answer": "Logging drills, also known as drilling logs, are an important operation in oil and gas operations. Logging during drilling can be performed using wireline tools or mud pulse technology. These logging operations are typically done by Service Companies in an open hole environment, with the Cement Bond Log being the exception, as it's the only log performed in a cased hole environment during the drilling phase. Interpretation of drilling logs can be complicated. Logging while drilling can be an effective technique for progress evaluation. Mud logging is a commonly used service to obtain data from the mud system and drilling parameters.",
+      "expected_answer": null,
+      "citations": [
+        {
+          "source": "docs/Drilling Engineering Concepts Part 3.pdf",
+          "page": 33,
+          "slide": null,
+          "relevant_text": "Basic Logging \u2013 Drilling Logs\nLogging during drilling can be done either using wireline and \ntools  or using mud pulse technology.   These logging \noperations are performed by Service Companies in Ope"
+        },
+        {
+          "source": "docs/Drilling Engineering Concepts Part 3.pdf",
+          "page": 32,
+          "slide": null,
+          "relevant_text": "Drilling Fluids  - Examples of LCM\nBasic Logging \nWell logging is an important operation in oil and gas operations.   Logs provide information about the well, which \noften needs to be interpreted. Log"
+        },
+        {
+          "source": "docs/Drilling Engineering Concepts Part 3.pdf",
+          "page": 44,
+          "slide": null,
+          "relevant_text": "Basic Logging \u2013 Mud Logging   \nMud logging is a commonly used service to obtain data from \nthe mud system and drilling parameters that can infer valuable \ninformation about the  formation.  \nIt can be"
+        }
+      ],
+      "confidence": 0.6000000000000001,
+      "scores": {
+        "correctness": 1,
+        "relevance": 1,
+        "clarity": 1,
+        "overall": 1,
+        "reason": "OK",
+        "answer_grade_score": 0.9991267879449359,
+        "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+        "citation_relevance": 1,
+        "citation_support": 1
+      },
+      "passed": true,
+      "failure_reason": null
+    },
+    {
+      "case_id": "case_012",
+      "question": "what are the common drilling problems?",
+      "generated_answer": "Lost circulation is a costly drilling problem. High hydrostatic pressure and natural fractures can cause losses. High viscosity, excessive colloids, undesirable drill solids, or contaminants can cause drilling problems, including excessive yield points and gel strengths. A stuck drillstring can cause sidetracking.",
+      "expected_answer": null,
+      "citations": [
+        {
+          "source": "docs/Drilling Engineering Concepts Part 3.pdf",
+          "page": 30,
+          "slide": null,
+          "relevant_text": "Drilling Fluid \u2013 Additives\nLost Circulation Materials. Lost circulation is perhaps the most costly drilling problem encountered in oil and gas \nexploration, with the exception of blowouts. Losses can "
+        },
+        {
+          "source": "docs/Drilling Engineering Concepts Part 3.pdf",
+          "page": 27,
+          "slide": null,
+          "relevant_text": "Drilling Fluids - Additives \nViscosity Reducers. A high viscosity caused by excessive colloids, undesirable drill solids, or contaminants can \ncause several drilling problems. Associated with high vis"
+        },
+        {
+          "source": "docs/Drilling Engineering Concepts Part 4.pdf",
+          "page": 5,
+          "slide": null,
+          "relevant_text": "Introduction to Directional Drilling \nSideTracking : A frequently occurring cause for directional drilling is \nsidetracking. The primary purpose is to deviate the wellbore around and \naway from an obs"
+        }
+      ],
+      "confidence": 0.6000000000000001,
+      "scores": {
+        "correctness": 1,
+        "relevance": 1,
+        "clarity": 1,
+        "overall": 1,
+        "reason": "OK",
+        "answer_grade_score": 0.9969242295521804,
         "reranker_model": "cross-encoder/ms-marco-MiniLM-L-6-v2",
         "citation_relevance": 1,
         "citation_support": 1
