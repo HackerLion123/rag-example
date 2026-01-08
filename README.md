@@ -16,8 +16,7 @@ graph TD
     F --> G[RAG QA Generation]
     G --> H[Generated Response]
     H --> I[Citation Extraction]
-    I --> J[RAGResponse with Citations]
-    J --> K[Response]
+    I --> J[Response with Citations]
     
     O[Document Ingestion] --> P[Data Loader]
     P --> Q[Embedding Generation]
