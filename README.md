@@ -13,24 +13,16 @@ graph TD
     C --> D[Vector Store FAISS]
     D --> E[Retrieved Documents]
     E --> F[Document Reranking]
-    F --> G[Top-K Reranked Docs]
-    G --> H[RAG QA Generation]
-    H --> I[LLM ChatOllama]
-    I --> J[Generated Response]
-    J --> K[Citation Extraction]
-    K --> L[RAGResponse with Citations]
-    L --> M[FastAPI Endpoint]
-    M --> N[User]
+    F --> G[RAG QA Generation]
+    G --> H[Generated Response]
+    H --> I[Citation Extraction]
+    I --> J[RAGResponse with Citations]
+    J --> K[Response]
     
     O[Document Ingestion] --> P[Data Loader]
     P --> Q[Embedding Generation]
-    Q --> R[sentence-transformers]
-    R --> S[FAISS Index]
-    S --> D
-    
-    style B fill:#e1f5ff
-    style H fill:#fff4e1
-    style M fill:#e8f5e9
+    Q --> R[FAISS Index]
+    R --> D
 ```
 
 ### Key Components
