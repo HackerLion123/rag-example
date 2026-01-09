@@ -136,6 +136,7 @@ Results are saved to [`evaluation_report.json`](evaluation_report.json).
 
 ## Future work
 
-1. See if llm client can be abstracted such that any provider can be used.
-2. use words in evaluation instead of 1/0.
-3. maybe consider expanding reason in evaluation? might not require if we can get business input.
+1. Improve llm citation see which answer comes from which document. And provide source in links.
+2. See if llm client can be abstracted such that any provider can be used.
+3. use words in evaluation instead of 1/0.
+4. maybe consider expanding reason in evaluation? might not require if we can get business input.
