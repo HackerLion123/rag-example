@@ -69,3 +69,31 @@ def create_citation_eval_prompt():
     Respond ONLY with valid JSON (no extra text):
     {{"citation_relevance":0, "citation_support":0, "reason":"MISSING}}"""
     return PromptTemplate(template=prompt, input_variables=["answer", "citations"])
+
+def create_synthetic_query_prompt():
+    prompt = """
+    You are an AI assistant tasked with generating a single, realistic question-answer pair based on a given document. The question should be something a user might naturally ask when seeking information contained in the document.
+
+    Given: {chunk}
+
+    Instructions:
+    1. Analyze the key topics, facts, and concepts in the given document, choose one to focus on.
+    2. Generate twenty similar questions that a user might ask to find the information in this document that does NOT contain any company name.
+    3. Use natural language and occasionally include typos or colloquialisms to mimic real user behavior in the question.
+    4. Ensure the question is semantically related to the document content WITHOUT directly copying phrases.
+    5. Make sure that all of the questions are similar to eachother. I.E. All asking about a similar topic/requesting the same information.
+
+    Output Format:
+    Return a JSON object with the following structure:
+    ```json
+    {{
+    "question_1": "Generated question text",
+    "question_2": "Generated question text",
+    ...
+    }}
+    ```
+
+    Be creative, think like a curious user, and generate your 20 similar questions that would naturally lead to the given document in a semantic search. Ensure your response is a valid JSON object containing only the questions.
+
+    """
+    return PromptTemplate(template=prompt, input_variables=["chunk"])

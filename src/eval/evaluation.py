@@ -228,6 +228,10 @@ class EvaluationSuite:
             "failure_analysis": failures,
             "detailed_results": [r.model_dump() for r in results]
         }
+        
+        
+def create_evalution_set() -> List[EvalCase]:
+    return EVAL_CASES
 
 
 def run_evaluation(output_path: Optional[str] = None) -> dict:
